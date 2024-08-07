@@ -4,28 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReachSpan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,900;1,900&family=Roboto+Condensed:ital@0;1&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div>
+    <section id="landing-Page" style="display: none;">
         <div class="basePanel">
             <div id="landing-label">
 
             </div>
             <fieldset id="landing-Description">
-                    <legend>
-                        About the Game
-                    </legend>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa voluptate accusamus quos ullam, eligendi dolores similique cum quaerat sed animi quis atque, harum eum natus dolor voluptatem amet ad? Qui!   
-                    </p>
+                <legend>
+                    About the Game
+                </legend>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa voluptate accusamus quos ullam,
+                    eligendi dolores similique cum quaerat sed animi quis atque, harum eum natus dolor voluptatem amet
+                    ad? Qui!
+                </p>
             </fieldset>
         </div>
         <div id="landing-Buttons">
             <button class="transmission-button">Random Character</button>
             <button class="transmission-button">Create Character</button>
         </div>
-    </div>
+    </section>
+    <section id="character-Sheet" style="display: unset;">
+        <div class="sheetPanel">
+            <div class="sheetSection">
+                <div class="sectionElement" id="characterAspect"></div>
+                <div class="sectionElement" id="characterStats"></div>
+                <div class="sectionElement" id="characterInventory"></div>
+            </div>
+            <div class="sheetSection">
+                <div class="sectionElement" id="sheetLogo"></div>
+                <div class="sectionElement" id="characterInformation"></div>
+                <div class="sectionElement" id="characterConditions"></div>
+                <div class="sectionElement" id="contactNotes"></div>
+            </div>
+            <div class="sheetSection">
+                <div class="sectionElement" id="crewHeat"></div>
+                <div class="sectionElement" id="shipInformantion"></div>
+                <div class="sectionElement" id="locationsLog"></div>
+            </div>
+        </div>
+    </section>
     <script src="/js/main.js" type="module"></script>
 </body>
 </html>
