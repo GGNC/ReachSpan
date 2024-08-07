@@ -1,0 +1,62 @@
+@layer base {
+    body {
+        background: url("/images/main_background.png");
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+    }
+
+    .basePanel {
+        width: 40vw;
+        margin: 2rem auto;
+        background-color: black;
+        border: 0.25rem double white;
+        border-radius: 1rem;
+    }
+    .transmission-button {
+        background-color: black;
+        color: white;
+        border: 0.25rem double white;
+        border-radius: 0.5rem;
+        padding: 1rem 2rem;
+        font-size: large;
+    }
+}
+
+@layer Landing-Page {
+
+    #landing-label {
+        position: static;
+        width: 20vw;
+        height: 12vh;
+        border: 0.25rem double white;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        margin: auto auto;
+        margin-top: -0.25rem;
+    }
+
+    #landing-Description {
+        color: white;
+        margin: 2rem 3rem;
+        margin-bottom: 3rem;
+        border-radius: 1rem;
+    }
+
+    #landing-Description>legend {
+        font-weight: bold;
+        font-size: 50px;
+        text-align: left;
+        padding-inline-end: 1rem;
+    }
+
+    #landing-Description>p {
+        margin: 0.5rem 1.5rem;
+    }
+
+    #landing-Buttons {
+        width: 40vw;
+        margin: 2rem auto;
+        display: flex;
+        justify-content: space-around;
+    }
+}
