@@ -202,20 +202,37 @@
             justify-content: space-between;
         }
         #aspectImage{
-            width: 35%;
+            width: 42.5%;
         }
-        #aspectImage >img{
+        #data-characterImage{
             width: 100%;
+            padding: 0;
             margin: 0.15rem;
             border: 2px solid white;
-            border-radius: 1rem;
         }
         #aspectValues{
-            width: 62.5%;
+            width: 55%;
             display: flex;
             flex-wrap: nowrap;
             flex-direction: column;
             justify-content: center;
+        }
+        #informationHolder{
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+        #data-characterBackground > p{
+            margin: 0 auto;
+            color: var(--darkgrey);
+            padding: 1rem 1.5rem;
+            background-color: var(--icewhite);
+            border-radius: 1rem;
+            font-weight: bold;
+            font-size: var(--h6);
         }   
         .aspectValueHolder{
             color: var(--darkgrey);
@@ -226,6 +243,95 @@
             margin: 0.2rem;
             font-weight: bold;
             font-size: var(--h6);
+        }
+    }
+    @layer characterInventory{
+        #characterInventory{
+
+        }
+        #inventoryHolder{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            margin: 1rem auto;
+        }
+        .inventoryItem{
+            width: 85%;
+            height: 50px;
+            margin: -0.45rem auto;
+        }
+        #rightBasedItem{
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+        #leftBasedItem{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+        .itemClockContainer{
+            position: relative;
+            width: 65px;
+            height: 65px;
+            margin: -2rem;
+        }
+        .itemClockBorder{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: var(--icewhite);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            width: 100%;
+            height: 100%;
+        }
+        #data-itemClock{
+            position: absolute;
+            top: 3.5px;
+            left: 3.5px;
+            z-index: 2;
+            background: url("/images/Clock-Images/4x-Clock/Fourstate_3.png");
+            background-position: center;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            width: 90%;
+            height: 90%;
+        }
+        .itemDataHolder{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+        .itemDataHolder > p{
+            margin: 0;
+            padding: 0.15rem 2rem;
+            width: 12.5vw;
+            color: var(--icewhite);
+            font-weight: bold;
+            font-size: 0.7rem;
+            background-color: var(--darkgrey);
+            border: 2px solid var(--icewhite);
+        }
+        #data-itemName{
+            color: var(--electricblue);
+            border-bottom: none;
+        }
+        #data-itemTags{
+            color: var(--orange);
+        }
+    }
+    @layer SheetLogo{
+        #sheetLogo{
+
+        }
+        #reachSpanLogo{
+            width: 100%;
         }
     }
     @layer CharacterStat{
@@ -296,120 +402,6 @@
             font-size: var(--h2);
         }
     }
-    @layer characterInventory{
-        #characterInventory{
-
-        }
-        #inventoryHolder{
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            align-items: center;
-            margin: 1rem auto;
-        }
-        .inventoryItem{
-            width: 85%;
-            height: 50px;
-            margin: -0.45rem auto;
-        }
-        #rightBasedItem{
-            display: flex;
-            flex-direction: row-reverse;
-            flex-wrap: nowrap;
-            align-items: center;
-        }
-        #leftBasedItem{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-items: center;
-        }
-        .itemClockContainer{
-            position: relative;
-            width: 65px;
-            height: 65px;
-            margin: -2rem;
-        }
-        .itemClockBorder{
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            background-color: var(--icewhite);
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            width: 100%;
-            height: 100%;
-        }
-        #data-itemClock{
-            position: absolute;
-            top: 3.5px;
-            left: 3.5px;
-            z-index: 2;
-            background: url("https://picsum.photos/160");
-            background-position: center;
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            width: 90%;
-            height: 90%;
-        }
-        .itemDataHolder{
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            justify-content: center;
-        }
-        .itemDataHolder > p{
-            margin: 0;
-            padding: 0.15rem 2rem;
-            width: 12.5vw;
-            color: var(--icewhite);
-            font-weight: bold;
-            font-size: 0.7rem;
-            background-color: var(--darkgrey);
-            border: 2px solid var(--icewhite);
-        }
-        #data-itemName{
-            color: var(--teal);
-            border-bottom: none;
-        }
-        #data-itemTags{
-            color: var(--orange);
-        }
-    }
-    @layer SheetLogo{
-        #sheetLogo{
-
-        }
-        #reachSpanLogo{
-            width: 100%;
-        }
-    }
-    @layer CharacterInformation{
-        #characterInformation{
-
-        }
-        #informationHolder{
-            width: 90%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            align-items: center;
-        }
-        #moxie{
-            margin: 0 auto
-        }
-        #data-characterBackground > p{
-            margin: 0 auto;
-            color: var(--darkgrey);
-            padding: 1rem 1.5rem;
-            background-color: var(--icewhite);
-            border-radius: 1rem;
-            font-weight: bold;
-            font-size: var(--h6);
-        }
-    }
     @layer CharacterMoxie{
         #characterMoxie{
             display: flex;
@@ -462,7 +454,85 @@
             
         }
         #characterConditions .log{
-            height: 15vh;
+            height: 25vh;
+        }
+    }
+    @layer CrewHeat{
+        #crewHeat{
+            margin-top: 1.5rem;
+            border: 2px solid var(--icewhite);
+            border-left: none;
+            border-right: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+        #heatTitle{
+            width: 35%;
+            padding: 0;
+            margin:  0.5rem 1rem;
+            color: var(--icewhite);
+            font-size: 45px;
+        }
+    }
+    @layer ShipInformantion{
+        #shipInformantion{
+            
+        }
+        .shipInformantionHolder{
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .shipAsspects{
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .shipAsspects > p{
+            width: 45%;
+            margin: 0;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            font-weight: bold;
+            color: var(--darkgrey);
+            background-color: var(--icewhite);
+            border-radius: 1rem;
+        }
+        .shipModules{
+            margin: 1rem;
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        #moduleSection{
+            width: 34%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-content: space-between;
+        }
+        .shipModule{
+            width: 100%;
+            height: 50px;
+            background-color: #2f927a;
+            margin: 0.5rem auto;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: space-between;
+        }
+        #shipImageContainter{
+            width: 30%;
+            padding: 0;
+            margin: 0.15rem;
+            border: 2px solid white;
         }
     }
     @layer ContactNotes{
@@ -473,19 +543,4 @@
             height: 25vh;
         }
     }
-    @layer CrewHeat{
-        #crewHeat{
-            background-color: #304088;
-        }
-    }
-    @layer ShipInformantion{
-        #shipInformantion{
-            background-color: #bec1cf;
-        }
-    }
-    @layer LocationsLog{
-        #locationsLog{
-            
-        }
-    }  
 }
