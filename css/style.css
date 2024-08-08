@@ -38,7 +38,18 @@
     body {
         background: url("/images/main_background.png");
         background-repeat: no-repeat;
+        font-family: var(--main);
         background-size: 100vw 100vh;
+    }
+    h1,h2,h3,h4,h5,h6{
+        color: var(--icewhite);
+        font-family: var(--heading);
+        margin: 0;
+        padding: 0;
+    }
+    p{
+        font-family: var(--main);
+        color: var(--icewhite);
     }
     .basePanel {
         width: 45vw;
@@ -51,26 +62,48 @@
         display: flex;
         justify-content: space-evenly;
         flex-wrap: nowrap;
-        width: 80vw;
+        width: 85vw;
         margin: 2rem auto;
         background-color: var(--darkgrey);
         border: 0.25rem double var(--icewhite);
         border-radius: 1rem;
     }
-    .sheetSection{
-        width: 32.5%;
-        margin: 1rem 0.5rem;
-        background-color: red;
+    .sheetSectionLeft{
+        width: 37%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .sheetSectionMiddle{
+        width: 26%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .sheetSectionRight{
+        width: 37%;
+        margin: 0;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: flex-start;
     }
     .sectionElement{
-        width: 90%;
-        height: 50px;
-        margin: 1rem auto;
-        background-color:  blue;
+        width: 96%;
+        margin: 0.5rem auto;
+    }
+    .sectionElement fieldset{
+        border: 3px solid var(--icewhite);
+        border-radius: 0.25rem;
+    }
+    .sectionElement legend{
+        color: var(--icewhite);
+        font-family: var(--heading);
+        font-size: var(--h3);
     }
     .transmission-button {
         background-color: var(--darkgrey);
@@ -125,19 +158,209 @@
     }
 }
 @layer Character-Sheet{
+    @layer Character-Sheet-Base{
+        .logContainer{
+            width: 100%;
+            margin: 0;
+        }
+        .log{
+            width: 90%;
+            margin: auto 1rem;
+            padding: 1rem 1.5rem;
+            background-color: var(--icewhite);
+            border: 2px solid #ccc;
+            border-radius:1rem;
+            color : var(--darkgrey);
+            font-family: var(--main);
+            font-weight: 600;
+            font-size: var(--h6);
+            resize: none;
+        }
+    }
     @layer CharacterAspect{
         #characterAspect{
-            background-color: #5d14d1;
+            
+        }
+        #aspectContainer{
+            margin: 0;
+            padding: 0.25rem;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        #aspectImage{
+            width: 35%;
+        }
+        #aspectImage >img{
+            width: 100%;
+            margin: 0.15rem;
+            border: 2px solid white;
+            border-radius: 1rem;
+        }
+        #aspectValues{
+            width: 62.5%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: center;
+        }   
+        .aspectValueHolder{
+            color: var(--darkgrey);
+            background-color: var(--icewhite);
+            border: 2px solid var(--darkgrey);
+            border-radius: 2rem;
+            padding: 0.2rem 2rem;
+            margin: 0;
+            font-weight: bold;
+            font-size: var(--h6);
         }
     }
     @layer CharacterStat{
         #characterStats{
-            background-color: #2cd60a;
+            
+        }
+        #statHolder{
+            width: 95%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .statElement{
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: center;
+            border: 2px solid var(--icewhite);
+            border-left: none;
+            border-right: none;
+        }
+        .statElement p{
+            margin: auto 0;
+            padding: 0;
+        }
+        .directAttribute{
+            width: 30%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            align-items: center;
+        }
+        .directAttribute > p{
+            color: var(--electricblue);
+        }
+        .statContainer{
+            width: 30%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            align-items: center;
+        }
+        .statContainer > #statName{
+            color: var(--icewhite);
+        }
+        .adaptiveAttribute{
+            width: 30%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            align-items: center;
+        }
+        .adaptiveAttribute > p{
+            color: var(--darkpurple);
+        }
+        .arrowUp , .arrowDown {
+            width: 5%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            align-items: center;
+        }
+        .arrowUp >p, .arrowDown >p {
+            font-size: var(--h2);
         }
     }
-    @layer CharacterInventory{
+    @layer characterInventory{
         #characterInventory{
-            background-color: #e933bb;
+
+        }
+        #inventoryHolder{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            margin: 1rem auto;
+        }
+        .inventoryItem{
+            width: 85%;
+            height: 50px;
+            margin: -0.45rem auto;
+        }
+        #rightBasedItem{
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+        #leftBasedItem{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+        .itemClockContainer{
+            position: relative;
+            width: 65px;
+            height: 65px;
+            margin: -2rem;
+        }
+        .itemClockBorder{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: var(--icewhite);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            width: 100%;
+            height: 100%;
+        }
+        #data-itemClock{
+            position: absolute;
+            top: 3.5px;
+            left: 3.5px;
+            z-index: 2;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            width: 90%;
+            height: 90%;
+        }
+        .itemDataHolder{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+        .itemDataHolder > p{
+            margin: 0;
+            padding: 0.15rem 2rem;
+            width: 12.5vw;
+            color: var(--icewhite);
+            font-weight: bold;
+            font-size: 0.7rem;
+            background-color: var(--darkgrey);
+            border: 2px solid var(--icewhite);
+        }
+        #data-itemName{
+            color: var(--teal);
+            border-bottom: none;
+        }
+        #data-itemTags{
+            color: var(--orange);
         }
     }
     @layer SheetLogo{
@@ -152,12 +375,18 @@
     }
     @layer CharacterConditions{
         #characterConditions{
-            background-color: #735cc5;
+            
+        }
+        #characterConditions .log{
+            height: 20vh;
         }
     }
     @layer ContactNotes{
         #contactNotes{
-            background-color: #458b4b;
+            
+        }
+        #contactNotes .log{
+            height: 30vh;
         }
     }
     @layer CrewHeat{
@@ -172,7 +401,7 @@
     }
     @layer LocationsLog{
         #locationsLog{
-            background-color: #681f2b;
+            
         }
     }  
 }
