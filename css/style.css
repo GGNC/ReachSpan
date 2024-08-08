@@ -5,7 +5,7 @@
         --icewhite: #dce5e7;
         --teal :  #2f927a;
         --orange : #b46e2a;
-        --darkpurple : #4d3b83;
+        --lightpurple : #8d75d3;
         --electricblue: #4783b1;
         /* font families */
         --main : "Roboto Condensed", sans-serif;
@@ -50,6 +50,18 @@
     p{
         font-family: var(--main);
         color: var(--icewhite);
+    }
+    .teal{
+        color:var(--teal);
+    }
+    .orange{
+        color: var(--orange);
+    }
+    .purple{
+        color: var(--lightpurple);
+    }
+    .blue{
+        color: var(--electricblue);
     }
     .basePanel {
         width: 45vw;
@@ -210,8 +222,8 @@
             background-color: var(--icewhite);
             border: 2px solid var(--darkgrey);
             border-radius: 2rem;
-            padding: 0.2rem 2rem;
-            margin: 0;
+            padding: 0.4rem 2rem;
+            margin: 0.2rem;
             font-weight: bold;
             font-size: var(--h6);
         }
@@ -271,7 +283,7 @@
             align-items: center;
         }
         .adaptiveAttribute > p{
-            color: var(--darkpurple);
+            color: var(--lightpurple);
         }
         .arrowUp , .arrowDown {
             width: 5%;
@@ -333,6 +345,8 @@
             top: 3.5px;
             left: 3.5px;
             z-index: 2;
+            background: url("https://picsum.photos/160");
+            background-position: center;
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
             width: 90%;
             height: 90%;
@@ -365,12 +379,82 @@
     }
     @layer SheetLogo{
         #sheetLogo{
-            background-color: #dfdb20;
+
+        }
+        #reachSpanLogo{
+            width: 100%;
         }
     }
     @layer CharacterInformation{
         #characterInformation{
-            background-color: #18dfdf;
+
+        }
+        #informationHolder{
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+        #moxie{
+            margin: 0 auto
+        }
+        #data-characterBackground > p{
+            margin: 0 auto;
+            color: var(--darkgrey);
+            padding: 1rem 1.5rem;
+            background-color: var(--icewhite);
+            border-radius: 1rem;
+            font-weight: bold;
+            font-size: var(--h6);
+        }
+    }
+    @layer CharacterMoxie{
+        #characterMoxie{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+        #moxieHolder{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            border: 2px solid var(--icewhite);
+            border-left: none;
+            border-right: none;
+        }
+        #moxieButtons{
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        #moxeiDecreseButton{
+
+        }
+        #data-characterMoxie{
+
+        }
+        #moxeiRefreshButton{
+        }
+        #moxieKeyWords{
+            margin: 0.25rem 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 0.25rem;
+        }
+        #moxieKeyWords > p{
+            margin: 0;
+            font-weight: bold;
+            font-size: var(--h3);
         }
     }
     @layer CharacterConditions{
@@ -378,7 +462,7 @@
             
         }
         #characterConditions .log{
-            height: 20vh;
+            height: 15vh;
         }
     }
     @layer ContactNotes{
@@ -386,7 +470,7 @@
             
         }
         #contactNotes .log{
-            height: 30vh;
+            height: 25vh;
         }
     }
     @layer CrewHeat{
