@@ -454,12 +454,13 @@
             
         }
         #characterConditions .log{
-            height: 25vh;
+            height: 20vh;
         }
     }
     @layer CrewHeat{
         #crewHeat{
             margin-top: 1.5rem;
+            padding: 0.25rem;
             border: 2px solid var(--icewhite);
             border-left: none;
             border-right: none;
@@ -467,13 +468,22 @@
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-between;
+            align-items: center;
         }
         #heatTitle{
-            width: 35%;
+            width: 15%;
             padding: 0;
-            margin:  0.5rem 1rem;
+            margin: 0.5rem 2rem;
             color: var(--icewhite);
             font-size: 45px;
+        }
+        #heatImageContainer{
+            width: 50%;
+            margin: 0;
+        }
+        #data-heatImage{
+            width: 100%;
+            margin: 0.5rem -2rem;
         }
     }
     @layer ShipInformantion{
@@ -505,15 +515,15 @@
             border-radius: 1rem;
         }
         .shipModules{
-            margin: 1rem;
+            margin: 1rem 0;
             width: 100%;
             display: flex;
             flex-wrap: nowrap;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: center;
         }
         #moduleSection{
-            width: 34%;
+            width: 27.5%;
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
@@ -522,17 +532,73 @@
         .shipModule{
             width: 100%;
             height: 50px;
-            background-color: #2f927a;
-            margin: 0.5rem auto;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-content: space-between;
+            margin: 0.75rem auto;
+        }
+        .moduleClockContainer{
+            position: relative;
+            width: 65px;
+            height: 65px;
+            margin: -2rem;
+        }
+        .moduleClockBorder{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: var(--icewhite);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            width: 100%;
+            height: 100%;
+        }
+        #data-moduleClock{
+            position: absolute;
+            top: 3.5px;
+            left: 3.5px;
+            z-index: 2;
+            background: url("/images/Clock-Images/4x-Clock/Fourstate_3.png");
+            background-position: center;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            width: 90%;
+            height: 90%;
         }
         #shipImageContainter{
-            width: 30%;
+            width: 27.5%; 
+        }
+        #data-shipImage{
+            width: 100%;
             padding: 0;
             margin: 0.15rem;
             border: 2px solid white;
+        }
+        .moduleDataHolder{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+        .moduleDataHolder >p{
+            margin: 0;
+            width: 6vw;
+            color: var(--icewhite);
+            font-weight: bold;
+            font-size: 0.7rem;
+            background-color: var(--darkgrey);
+            border: 2px solid var(--icewhite);
+        }
+        #leftBasedItem >.moduleDataHolder >p{
+            padding: 0.15rem 0.5rem 0.1rem 2.5rem;
+        }
+        #rightBasedItem >.moduleDataHolder >p{
+            padding: 0.15rem 2.5rem 0.1rem 0.5rem;
+        }
+        #data-moduleName{
+            color: var(--electricblue);
+            border-bottom: none;
+        }
+        #data-moduleTags{
+            color: var(--orange);
         }
     }
     @layer ContactNotes{
