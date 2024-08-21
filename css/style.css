@@ -36,8 +36,9 @@
         width: 1px;
     }
     body {
-        background: url("/images/main_background.png");
+        background: url("/images/main-background.png");
         background-repeat: no-repeat;
+        background-color: #0a0b0e;
         font-family: var(--main);
         background-size: 100vw 100vh;
     }
@@ -88,6 +89,9 @@
         flex-wrap: nowrap;
         justify-content: flex-start;
     }
+    .sheetSectionLeft .sectionElement legend{
+        text-align: left;
+    }
     .sheetSectionMiddle{
         width: 26%;
         margin: 0;
@@ -96,6 +100,9 @@
         flex-wrap: nowrap;
         justify-content: flex-start;
     }
+    .sheetSectionMiddle .sectionElement legend{
+        text-align: center;
+    }
     .sheetSectionRight{
         width: 37%;
         margin: 0;
@@ -103,6 +110,9 @@
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: flex-start;
+    }
+    .sheetSectionRight .sectionElement legend{
+        text-align: right;
     }
     .sectionElement{
         width: 96%;
@@ -132,21 +142,22 @@
     #landing-label {
         position: static;
         width: 20vw;
-        height: 12vh;
         border: 0.25rem double var(--icewhite);
         border-bottom-left-radius: 1rem;
         border-bottom-right-radius: 1rem;
         margin: auto auto;
         margin-top: -0.25rem;
     }
-
+    #landing-label > img{
+        width: 100%;
+        padding: 0 2rem;
+    }
     #landing-Description {
         color: var(--icewhite);
         margin: 2rem 3rem;
         margin-bottom: 3rem;
         border-radius: 1rem;
     }
-
     #landing-Description>legend {
         font-weight: bold;
         font-size: var(--h1);
@@ -155,13 +166,11 @@
         padding-inline-end: 1rem;
         margin: 0;
     }
-
     #landing-Description>p {
         margin: 0.5rem 1.5rem;
         font-family: var(--main);
         font-size: var(--h5);
     }
-
     #landing-Buttons {
         width: 45vw;
         margin: 2rem auto;
@@ -173,7 +182,7 @@
     @layer Character-Sheet-Base{
         .logContainer{
             width: 100%;
-            margin: 0;
+            margin: 0.25rem auto;
         }
         .log{
             width: 90%;
@@ -294,7 +303,7 @@
             top: 3.5px;
             left: 3.5px;
             z-index: 2;
-            background: url("/images/Clock-Images/4x-Clock/Fourstate_3.png");
+            background: url("/images/Clock-Images/4x-Clock/fourstate-3.png");
             background-position: center;
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
             width: 90%;
@@ -459,7 +468,7 @@
     }
     @layer CrewHeat{
         #crewHeat{
-            margin-top: 1.5rem;
+            margin: 1.5rem 0 0 0 ;
             padding: 0.25rem;
             border: 2px solid var(--icewhite);
             border-left: none;
@@ -516,11 +525,13 @@
         }
         .shipModules{
             margin: 1rem 0;
+            padding: 0.5rem 0;
             width: 100%;
             display: flex;
             flex-wrap: nowrap;
             flex-direction: row;
             justify-content: center;
+            border-top: 2px solid var(--icewhite);
         }
         #moduleSection{
             width: 27.5%;
@@ -555,14 +566,18 @@
             top: 3.5px;
             left: 3.5px;
             z-index: 2;
-            background: url("/images/Clock-Images/4x-Clock/Fourstate_3.png");
+            background: url("/images/Clock-Images/4x-Clock/fourstate-3.png");
             background-position: center;
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
             width: 90%;
             height: 90%;
         }
         #shipImageContainter{
-            width: 27.5%; 
+            width: 27.5%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
         }
         #data-shipImage{
             width: 100%;
@@ -580,7 +595,7 @@
         }
         .moduleDataHolder >p{
             margin: 0;
-            width: 6vw;
+            width: 7vw;
             color: var(--icewhite);
             font-weight: bold;
             font-size: 0.7rem;
@@ -588,10 +603,10 @@
             border: 2px solid var(--icewhite);
         }
         #leftBasedItem >.moduleDataHolder >p{
-            padding: 0.15rem 0.5rem 0.1rem 2.5rem;
+            padding: 0.15rem 0.5rem 0.1rem 2.25rem;
         }
         #rightBasedItem >.moduleDataHolder >p{
-            padding: 0.15rem 2.5rem 0.1rem 0.5rem;
+            padding: 0.15rem 2.25rem 0.1rem 0.5rem;
         }
         #data-moduleName{
             color: var(--electricblue);
@@ -600,13 +615,68 @@
         #data-moduleTags{
             color: var(--orange);
         }
+        .shipCargo{
+            width: 80%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            margin: 0 auto;
+        }
+        .cargoModule{
+            width: 100%;
+            height: 50px;
+            margin: 0 auto;
+        }
+        .cargoClockContainer{
+            width: 50px;
+            height: 50px;
+            margin: -2rem;
+            z-index: 1;
+        }
+        #data-cargoClock{
+            width: 100%;
+            height: 100%;
+            background: url("/images/Clock-Images/4x-Clock/fourstate-1.png");
+            background-position: center;
+            border: 3px solid var(--icewhite);
+        }
+        .cargoDataHolder{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+        .cargoDataHolder >p{
+            margin: 0;
+            width: 11vw;
+            color: var(--icewhite);
+            font-weight: bold;
+            font-size: 0.7rem;
+            background-color: var(--darkgrey);
+            border: 2px solid var(--icewhite);
+        }
+        #leftBasedItem >.cargoDataHolder >p{
+            padding: 0.15rem 0.5rem 0.1rem 2.25rem;
+        }
+        #rightBasedItem >.cargoDataHolder >p{
+            padding: 0.15rem 2.25rem 0.1rem 0.5rem;
+        }
+        #data-cargoName{
+            color: var(--electricblue);
+            border-bottom: none;
+        }
+        #data-cargoTags{
+            color: var(--orange);
+        }
     }
     @layer ContactNotes{
         #contactNotes{
             
         }
         #contactNotes .log{
-            height: 25vh;
+            height: 24vh;
         }
     }
 }

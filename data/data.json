@@ -1,0 +1,16 @@
+{
+    "charName":["Jack","Rogan","Jid","Geld","Vaden","Nule","Ily","Brack","Jamie","Pag","Kess","Woland","Bria","Tris","Kyel","Torb","Jaelah","Tira","Marena"],
+    "charAlias":["the Salvager", "the Ghost", "the Shadow", "the Hunk", "the Hotshot", "Kysneros", "Hodge", "Vincent", "the Badger", "Bones", "Hammer", "the Mantis", "the Fixer", "the Angler", "the Breaker", "the Farseer", "the Stalwart", "the Dizzy", "the Whistler", "Haugh", "Zimward", "Ibara", "Larg", "Gray"],
+    "uniqueNames":["XI1754-A0","The Reaper", "Captain Tyfan","CAS67X","Xander of Gaia","Atlas", "Belen of Vesta", "Jula the Datakiller", "A5TUX","Noisy Ruca","The Slack Morton"],
+    "characterRole" :["Engineer", "Boffin", "Commando", "Officer", "Pilot", "Marksman", "Bounty Hunter", "Infiltrator"],
+    "characterExpertise":["Medicine", "Culture", "Droids", "Ships", "Survival", "Breaching", "Crime", "Weapons"],
+    "characterPower" : ["Strong", "Quick", "Charming", "Cool", "Acrobatics", "Fearless", "Alert", "Robot", "Devious", "Graceful", "Limber", "Sleight of Hand", "Genius", "Well-Connected", "Telekinesis"],
+    "characterFlaw":["Irritable", "Reckless", "Skeptical", "Obsessed", "Timid", "Arrogant", "Greedy", "Impatient", "Impudent", "Addicted", "Vengeful", "Vicious", "Clumsy", "Dim", "Hunted"],
+    "characterBehaviors":["Stubborn", "Ambitious", "Excited", "Stern", "Melancholic", "Dutiful", "Serious", "Maverick", "Weird", "Apathetic", "Cold", "Optimistic", "Humble", "Curious"],
+    "characterBackground":["Laborer", "Artisan", "Diplomat", "Mercenary", "Researcher", "Entertainer", "Scavenger", "Criminal", "Spy", "Fugitive"],
+    "characterLooks":["Shifty", "Immaculate", "Aged", "Attractive", "Imposing", "Eccentric", "Scruffy", "Athletic", "Swaggerly", "Mysterious", "Young", "Scarred", "Thoughtful"], 
+    "characterBackstory":["abandoned a stable life out of boredom", "were falsely accused of something and fled", "is the sole survivor of an attack", "survived a natural disaster", "banished after learning a troubling truth", "was away on a mission when everything changed", "plagued by the memories of a lost companion", "escaped from the unjust patron after rejecting a duty", "left a corporation after participating in an unethical experiment", "just recovered from a dangerous addiction"],
+    "shipName":["Cerelis Nine", "Kana's Reverie", "Fire's Call", "Starwolf", "Laserclad", "WOX616", "Reachling Jay", "Voyager", "Zephyr", "Horizon Shuttle", "Ironshark"],
+    "shipFeature":["Sentient Ship AI", "Phantom Transponder", "Integrated Multi Task Droid", "Hyperfunctional Scanner", "Exceptional Speed", "Super Nexus Computer", "Living Robust Armor", "Inner Hangar with a Vehicle"],
+    "shipProblem":["Faulty Sensors", "Haunted", "Awkward Thrusters", "Overheating Reactor", "Cumbersome Structure", "High Signature", "Fuel Hog", "Unwieldy Weapon Controls"]
+}
