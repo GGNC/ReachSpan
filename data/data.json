@@ -1,6 +1,6 @@
 {
-    "charName":["Jack","Rogan","Jid","Geld","Vaden","Nule","Ily","Brack","Jamie","Pag","Kess","Woland","Bria","Tris","Kyel","Torb","Jaelah","Tira","Marena"],
-    "charAlias":["the Salvager", "the Ghost", "the Shadow", "the Hunk", "the Hotshot", "Kysneros", "Hodge", "Vincent", "the Badger", "Bones", "Hammer", "the Mantis", "the Fixer", "the Angler", "the Breaker", "the Farseer", "the Stalwart", "the Dizzy", "the Whistler", "Haugh", "Zimward", "Ibara", "Larg", "Gray"],
+    "characterName":["Jack","Rogan","Jid","Geld","Vaden","Nule","Ily","Brack","Jamie","Pag","Kess","Woland","Bria","Tris","Kyel","Torb","Jaelah","Tira","Marena"],
+    "characterAlias":["the Salvager", "the Ghost", "the Shadow", "the Hunk", "the Hotshot", "Kysneros", "Hodge", "Vincent", "the Badger", "Bones", "Hammer", "the Mantis", "the Fixer", "the Angler", "the Breaker", "the Farseer", "the Stalwart", "the Dizzy", "the Whistler", "Haugh", "Zimward", "Ibara", "Larg", "Gray"],
     "uniqueNames":["XI1754-A0","The Reaper", "Captain Tyfan","CAS67X","Xander of Gaia","Atlas", "Belen of Vesta", "Jula the Datakiller", "A5TUX","Noisy Ruca","The Slack Morton"],
     "characterRole" :["Engineer", "Boffin", "Commando", "Officer", "Pilot", "Marksman", "Bounty Hunter", "Infiltrator"],
     "characterExpertise":["Medicine", "Culture", "Droids", "Ships", "Survival", "Breaching", "Crime", "Weapons"],

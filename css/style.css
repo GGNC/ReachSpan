@@ -135,6 +135,7 @@
         padding: 1rem 2rem;
         font-size: var(--h4);
         font-family: var(--main);
+        cursor: pointer;
     }
 }
 @layer Landing-Page {
@@ -234,7 +235,7 @@
             flex-wrap: nowrap;
             align-items: center;
         }
-        #data-characterBackground > p{
+        #characterDescriptionContainer{
             margin: 0 auto;
             color: var(--darkgrey);
             padding: 1rem 1.5rem;
@@ -265,7 +266,31 @@
             align-items: center;
             margin: 1rem auto;
         }
+        #inventoryButtonHolder{
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        #inventoryAddItemButton{
+            font-weight: bold;
+            padding: 0.25rem 1rem;
+            border: 2px solid var(--icewhite);
+            margin: 1rem 1rem 0.5rem 0;
+        }
+        #inventoryReloadItemButton{
+            font-weight: bold;
+            padding: 0.25rem 1rem;
+            border: 2px solid var(--icewhite);
+            margin: 1rem 1rem 0.5rem 0;
+        }
         .inventoryItem{
+            width: 85%;
+            height: 50px;
+            margin: -0.45rem auto;
+        }
+        .credits{
             width: 85%;
             height: 50px;
             margin: -0.45rem auto;
@@ -281,6 +306,18 @@
             flex-direction: row;
             flex-wrap: nowrap;
             align-items: center;
+        }
+        #data-creditImage{
+            position: absolute;
+            top: 3.5px;
+            left: 3.625px;
+            z-index: 2;
+            background: url("/images/clock-Images/1x-clock/clock-stage-1.png");
+            background-position: center;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            width: 90%;
+            height: 90%;
+            cursor: pointer;
         }
         .itemClockContainer{
             position: relative;
@@ -301,13 +338,14 @@
         #data-itemClock{
             position: absolute;
             top: 3.5px;
-            left: 3.5px;
+            left: 3.625px;
             z-index: 2;
-            background: url("/images/Clock-Images/4x-Clock/fourstate-3.png");
+            background: url("/images/clock-Images/8x-clock/clock-stage-3.png");
             background-position: center;
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
             width: 90%;
             height: 90%;
+            cursor: pointer;
         }
         .itemDataHolder{
             margin: 0;
@@ -333,6 +371,26 @@
         }
         #data-itemTags{
             color: var(--orange);
+        }
+        #data-characterCredit{
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            color: rgb(228, 190, 67);
+            font-size: 1.5rem;
+        }
+        #creditName{
+            margin: 0;
+            padding: 0.15rem 0.5rem;
+            width: 8.5vw;
+            height: 2.25rem;
+            color: var(--icewhite);
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-color: var(--darkgrey);
+            border: 2px solid var(--icewhite);
+            text-align: center center;
+            color: var(--electricblue);
         }
     }
     @layer SheetLogo{
@@ -437,7 +495,7 @@
             gap: 1rem;
         }
         #moxeiDecreseButton{
-
+            cursor: pointer;
         }
         #data-characterMoxie{
 
@@ -493,6 +551,7 @@
         #data-heatImage{
             width: 100%;
             margin: 0.5rem -2rem;
+            cursor: pointer;
         }
     }
     @layer ShipInformantion{
@@ -566,7 +625,7 @@
             top: 3.5px;
             left: 3.5px;
             z-index: 2;
-            background: url("/images/Clock-Images/4x-Clock/fourstate-3.png");
+            background: url("/images/clock-Images/4x-clock/clock-stage-2.png");
             background-position: center;
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
             width: 90%;
@@ -636,7 +695,7 @@
         #data-cargoClock{
             width: 100%;
             height: 100%;
-            background: url("/images/Clock-Images/4x-Clock/fourstate-1.png");
+            background: url("/images/clock-Images/4x-clock/clock-stage-3.png");
             background-position: center;
             border: 3px solid var(--icewhite);
         }
@@ -678,5 +737,92 @@
         #contactNotes .log{
             height: 24vh;
         }
+    }
+}
+@layer Modal-Area{
+    .modalArea{
+        display: none;
+        position: fixed; 
+        left: 0;
+        top: 0;
+        z-index: 2;
+        width: 100%; 
+        height: 100%; 
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modalContent{
+        background-color: var(--darkgrey);
+        margin: 5% auto;
+        padding: 20px;
+        border: 3px solid var(--icewhite);
+        border-radius: 5px;
+        width: 100%;
+        max-width: 50rem;
+        min-width: 25rem;
+    }
+    .modalTitle{
+        padding: 0.5rem 1.5rem;
+        text-align: center;
+        font-weight: bolder;
+        background-color: var(--darkgrey);
+        border: 5px double var(--icewhite);
+        border-radius: 5px;
+    }
+    .modalSectionHolder{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+    #modelRadioButtonHolder{
+        flex-direction: column;
+    }
+    #modelRadioButtonHolder > .modalSectionHolder{
+        width: 80%;
+    }
+    .modalSubHolder{
+        margin: 1rem auto;
+        width: 35%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .modalInput{
+        background-color: var(--icewhite);
+        border: none;
+        border-radius: 1rem;
+        padding: 0.35rem 1rem;
+    }
+    .modalSectionHolder > input{
+        display: none;
+    }
+    .modalRadioButtonImage{
+        margin: 1rem auto;
+        background: url("/images/clock-Images/1x-clock/clock-stage-1.png");
+        background-position: center;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        border: 2px solid var(--icewhite);
+    }
+    input[type="radio"]:checked + .modalRadioButtonImage {
+        background-color: lightgreen;
+        box-shadow: 0 0 15px 5px var(--teal); /* Glowing green */
+    }
+    .modalButtonsHolder{
+        display:  flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    #data-modelButton{
+        margin: 0rem 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: 2px solid var(--icewhite);
     }
 }
