@@ -106,7 +106,7 @@ async function loadData() {
       buttonItemClock.oncontextmenu = () => {
         return false;
       };
-      buttonItemClock.style.backgroundImage = `url('/images/clock-Images/${item.clockType}x-clock/clock-stage-${item.clockStage}.png')`;
+      buttonItemClock.style.backgroundImage = `url('/images/clock-images/${item.clockType}x-clock/clock-stage-${item.clockStage}.png')`;
 
       // Append the clockBorder and button to itemClockContainer
       divItemClockContainer.appendChild(divItemClockBorder);
@@ -153,7 +153,7 @@ async function loadData() {
         if (item.clockStage <= 0) item.clockStage = 0;
         if (item.clockStage >= item.clockType + 1)
           item.clockStage = item.clockType;
-        buttonItemClock.style.backgroundImage = `url('/images/clock-Images/${item.clockType}x-clock/clock-stage-${item.clockStage}.png')`;
+        buttonItemClock.style.backgroundImage = `url('/images/clock-images/${item.clockType}x-clock/clock-stage-${item.clockStage}.png')`;
       });
 
       divItemDeleteHolder.addEventListener("click", (event) => {
@@ -204,7 +204,7 @@ async function loadData() {
                     moduleClockButton.oncontextmenu = () => {
                         return false;
                     };
-                    moduleClockButton.style.backgroundImage = `url('/images/clock-Images/${shipModule.clockType}x-clock/clock-stage-${shipModule.clockStage}.png')`;
+                    moduleClockButton.style.backgroundImage = `url('/images/clock-images/${shipModule.clockType}x-clock/clock-stage-${shipModule.clockStage}.png')`;
 
 
                     // Append the clock border and button to the clock container
@@ -253,7 +253,7 @@ async function loadData() {
                         if (shipModule.clockStage <= 0) shipModule.clockStage = 0;
                         if (shipModule.clockStage >= shipModule.clockType + 1)
                             shipModule.clockStage = shipModule.clockType;
-                        moduleClockButton.style.backgroundImage = `url('/images/clock-Images/${shipModule.clockType}x-clock/clock-stage-${shipModule.clockStage}.png')`;
+                        moduleClockButton.style.backgroundImage = `url('/images/clock-images/${shipModule.clockType}x-clock/clock-stage-${shipModule.clockStage}.png')`;
                     });
                     divModuleDeleteHolder.addEventListener("click",(event)=>{
                         event.preventDefault();
@@ -371,7 +371,7 @@ async function loadData() {
                 buttonCargoClock.oncontextmenu = () => {
                     return false;
                 };
-                buttonCargoClock.style.backgroundImage = `url('/images/clock-Images/${shipCargo.clockType}x-clock/clock-stage-${shipCargo.clockStage}.png')`;
+                buttonCargoClock.style.backgroundImage = `url('/images/clock-images/${shipCargo.clockType}x-clock/clock-stage-${shipCargo.clockStage}.png')`;
 
                 // Append the clockBorder and button to itemClockContainer
                 divCargoClockContainer.appendChild(buttonCargoClock);
@@ -417,7 +417,7 @@ async function loadData() {
                         if (shipCargo.clockStage <= 0) shipCargo.clockStage = 0;
                         if (shipCargo.clockStage >= shipCargo.clockType + 1)
                             shipCargo.clockStage = shipCargo.clockType;
-                        buttonCargoClock.style.backgroundImage = `url('/images/clock-Images/${shipCargo.clockType}x-clock/clock-stage-${shipCargo.clockStage}.png')`;
+                        buttonCargoClock.style.backgroundImage = `url('/images/clock-images/${shipCargo.clockType}x-clock/clock-stage-${shipCargo.clockStage}.png')`;
                 });
                 divCargoDeleteHolder.addEventListener("click",(event)=>{
                     event.preventDefault();
@@ -537,7 +537,7 @@ heatImg.addEventListener(`mousedown`, (event) => {
       value = 0;
     }
   }
-  heatImg.src = `/images/Heat-Images/heat-stage-${value}.png`;
+  heatImg.src = `/images/heat-images/heat-stage-${value}.png`;
   character.setHeat(value);
   console.log(character.heat);
 });
