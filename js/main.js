@@ -7,9 +7,12 @@ function saveCharacterData(){
 const character = new Character();
 
 const randomCharacterButton = document.querySelector(`#randomCharacterButton`) ;
-console.log(randomCharacterButton)
-
 randomCharacterButton.addEventListener(`click`,()=>{
     saveCharacterData();
+    window.location.href = "./character-sheet.html";
+});
+
+const loadCharacterButton = document.querySelector(`#loadCharacterButton`) ;
+loadCharacterButton.addEventListener(`click`,()=>{
     window.location.href = "./character-sheet.html";
 });

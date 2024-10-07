@@ -46,17 +46,6 @@
                         <legend>
                             Inventory
                         </legend>
-                        <div id="inventoryHolder">
-                            <div class="credits" id="rightBasedItem">
-                                <div class="itemClockContainer">
-                                    <div class="itemClockBorder"></div>
-                                    <button id="data-creditImage" oncontextmenu="return false;">
-                                        <p id="data-characterCredit">12</p>
-                                    </button>
-                                </div>
-                                <p id="creditName">CREDITS</p>>
-                            </div>
-                        </div>
                         <div id="inventoryButtonHolder">
                             <button id="inventoryReloadItemButton" class="transmission-button" oncontextmenu="return false;">
                                 Reload
@@ -64,6 +53,17 @@
                             <button id="inventoryAddItemButton" class="transmission-button" oncontextmenu="return false;">
                                 Add item
                             </button>
+                        </div>
+                        <div id="inventoryHolder">
+                            <div class="credits" id="leftBasedItem">
+                                <div class="itemClockContainer">
+                                    <div class="itemClockBorder"></div>
+                                    <button id="data-creditImage" oncontextmenu="return false;">
+                                        <p id="data-characterCredit">12</p>
+                                    </button>
+                                </div>
+                                <p id="creditName">CREDITS</p>
+                            </div>
                         </div>
                     </fieldset>
                 </div>
@@ -180,92 +180,29 @@
                                 <p id="data-shipProblem">Overheating Reactor</p>
                             </div>                 
                             <div class="shipModules">
-                                <div id="moduleSection">
-                                    <div class="shipModule" id="leftBasedItem">
-                                        <div class="moduleClockContainer">
-                                            <div class="moduleClockBorder"></div>
-                                            <button id="data-moduleClock"></button>
-                                        </div>
-                                        <div class="moduleDataHolder">
-                                            <p id="data-moduleName">Module</p>
-                                            <p id="data-moduleTags">Tag1,Tag2</p>
-                                        </div>
-                                    </div>
-                                    <div class="shipModule" id="leftBasedItem">
-                                        <div class="moduleClockContainer">
-                                            <div class="moduleClockBorder"></div>
-                                            <button id="data-moduleClock"></button>
-                                        </div>
-                                        <div class="moduleDataHolder">
-                                            <p id="data-moduleName">Module</p>
-                                            <p id="data-moduleTags">Tag1,Tag2</p>
-                                        </div>
-                                    </div>
-                                    <div class="shipModule" id="leftBasedItem">
-                                        <div class="moduleClockContainer">
-                                            <div class="moduleClockBorder"></div>
-                                            <button id="data-moduleClock"></button>
-                                        </div>
-                                        <div class="moduleDataHolder">
-                                            <p id="data-moduleName">Module</p>
-                                            <p id="data-moduleTags">Tag1,Tag2</p>
-                                        </div>
-                                    </div>
+                                <div id="moduleSection" class="leftModuleSection">
+                        
                                 </div>
                                 <div id="shipImageContainter">
                                     <img src="/images/Ship-Images/ship-Image-1.png" alt="Ship Image" id="data-shipImage">
                                 </div>
-                                <div id="moduleSection">
-                                    <div class="shipModule" id="rightBasedItem">
-                                        <div class="moduleClockContainer">
-                                            <div class="moduleClockBorder"></div>
-                                            <button id="data-moduleClock"></button>
-                                        </div>
-                                        <div class="moduleDataHolder">
-                                            <p id="data-moduleName">Module</p>
-                                            <p id="data-moduleTags">Tag1,Tag2</p>
-                                        </div>
-                                    </div>
-                                    <div class="shipModule" id="rightBasedItem">
-                                        <div class="moduleClockContainer">
-                                            <div class="moduleClockBorder"></div>
-                                            <button id="data-moduleClock"></button>
-                                        </div>
-                                        <div class="moduleDataHolder">
-                                            <p id="data-moduleName">Module</p>
-                                            <p id="data-moduleTags">Tag1,Tag2</p>
-                                        </div>
-                                    </div>
-                                    <div class="shipModule" id="rightBasedItem">
-                                        <div class="moduleClockContainer">
-                                            <div class="moduleClockBorder"></div>
-                                            <button id="data-moduleClock"></button>
-                                        </div>
-                                        <div class="moduleDataHolder">
-                                            <p id="data-moduleName">Module</p>
-                                            <p id="data-moduleTags">Tag1,Tag2</p>
-                                        </div>
-                                    </div>
+                                <div id="moduleSection" class="rightModuleSection">
                                 </div>
                             </div>
+                            <div class="shipButtonHolder">
+                                <button class="transmission-button" id="reloadModuleButton" oncontextmenu="return false;">
+                                    Reload
+                                </button>
+                                <button class="transmission-button" id="addCargoButton" oncontextmenu="return false;">
+                                    Add Cargo
+                                </button>
+                            </div>
                             <div class="shipCargo">
-                                <div class="cargoModule" id="leftBasedItem">
-                                    <div class="cargoClockContainer">
-                                        <button id="data-cargoClock"></button>
-                                    </div>
-                                    <div class="cargoDataHolder">
-                                        <p id="data-cargoName">Cargo</p>
-                                        <p id="data-cargoTags">Tag1,Tag2</p>
-                                    </div>
+                                <div id="leftCargoContainer">
+                                    
                                 </div>
-                                <div class="cargoModule" id="rightBasedItem">
-                                    <div class="cargoClockContainer">
-                                        <button id="data-cargoClock"></button>
-                                    </div>
-                                    <div class="cargoDataHolder">
-                                        <p id="data-cargoName">Cargo</p>
-                                        <p id="data-cargoTags">Tag1,Tag2</p>
-                                    </div>
+                                <div id="rightCargoContainer">
+                                    
                                 </div>
                             </div>
                         </div>
