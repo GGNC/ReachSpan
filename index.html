@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <title>ReachSpan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <section id="landing-Page" style="display: unset;">
+    <section id="landingPage" style="display: unset;">
         <div class="basePanel">
             <div id="landing-label">
                 <img src="/images/reachspan-logo.png" alt="reachSpanlogo">
@@ -23,17 +24,116 @@
                 </legend>
                 <p>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    The Calamity scarred reality, leaving behind a fractured galaxy with many lost and forgotten. Far sectors shattered and anomalies appeared. The Great Confederation -a conservative monolithic dominion with long traditions- and the chaotic Free Union -an unbridled coalition pursuing terrifying tech- now wage a relentless war across the stars. Beyond the core systems and regulated routes lies the Reach, a lawless expanse teeming with untold horrors and secrets. You are Spacemongers, a motley crew of foolhardy merchants and fighters who venture around, undertaking jobs, claiming bounties and seeking profits. But remember, morality is a luxury in this erratic cluster of misery!
+                    The Calamity scarred reality, leaving behind a fractured galaxy with many lost and forgotten. Far sectors shattered and anomalies appeared. The Great Confederation a conservative monolithic dominion with long traditions and the chaotic Free Union an unbridled coalition pursuing terrifying tech- now wage a relentless war across the stars. Beyond the core systems and regulated routes lies the Reach, a lawless expanse teeming with untold horrors and secrets. You are Spacemongers, a motley crew of foolhardy merchants and fighters who venture around, undertaking jobs, claiming bounties and seeking profits. But remember, morality is a luxury in this erratic cluster of misery!
                 </p>
             </fieldset>
         </div>
         <div id="landing-Buttons">
-            <button class="transmission-button" id="loadCharacterButton" oncontextmenu="return false;">Load Character</button>
+            <button class="transmission-button" id="loadCharacterButton" oncontextmenu="return false;" style="display: none;">Load Character</button>
             <button class="transmission-button" id="randomCharacterButton" oncontextmenu="return false;">Random Character</button>
             <button class="transmission-button" oncontextmenu="return false;">Create Character</button>
         </div>
     </section>
+    <section id="randomCharacterPage" style="display: none;">
+        <div class="randomPanel" >
+            <div class="randomCharacterLabel">
+                <h2 class="randomModuleNameHolder" id="randomCharacterLabel">SHIP CREATION</h2>
+            </div>
+            <form id="randomCharacterForm">
+                <div class="randomFormHolder">
+                    <div class="randomFormShipImageHolder">
+                        <div class="randomShipImageHolder">
+                            <img id="data-randomShipImage" src="./images/ship-images/ship-image-1.png">
+                        </div>
+                        <div class="randomShipImageButtonHolder">
+                            <img id="randomShipButtonLeft" src="./images/arrow-images/left-arrow.png" oncontextmenu="return false;"></img>
+                            <img id="randomShipButtonRight" src="./images/arrow-images/right-arrow.png" oncontextmenu="return false;"></img>
+                        </div>
+                    </div>
+                    <div class="randomFormShipAspectHolder">
+                        <div class="randomShipAspectHolder">
+                            <h2 class="randomModuleNameHolder" id="data-randomShipName">Name of the ship</h2>
+                            <div class="randomShipInputHolder">
+                                <select class="randomShipSelectInput" id="randomShipNameSelection" oncontextmenu="return false;">
+                                </select>
+                                <input type="text" class="randomShipTextInput" id="randomShipNameInput">
+                            </div>
+                        </div>
+                        <div class="randomShipAspectHolder">
+                            <h2 class="randomModuleNameHolder" id="data-randomShipName">Special Feature Implemented</h2>
+                            <div class="randomShipInputHolder">
+                                <select class="randomShipSelectInput" id="randomShipSpecialFeatureSelection" oncontextmenu="return false;">
+                                </select>
+                                <input type="text" class="randomShipTextInput" id="randomShipSpecialFeatureInput">
+                            </div>
+                        </div>
+                        <div class="randomShipAspectHolder">
+                            <h2 class="randomModuleNameHolder" id="data-randomShipName">A Frequent Problem</h2>
+                            <div class="randomShipInputHolder">
+                                <select class="randomShipSelectInput" id="randomShipProblemSelection" oncontextmenu="return false;">
+                                </select>
+                                <input type="text" class="randomShipTextInput" id="randomShipProblemInput">
+                            </div>
+                        </div>
+                        <div class="randomShipAspectHolder">
+                            <h2 class="randomModuleNameHolder" id="randomModuleNameHolder">Module Loadout</h2>
+                            <div class="randomShipModuleHolder">
+                                <input type="checkbox" id="module-option-1" name="360° Gun Turret" value="1">
+                                <label class="randomShipModuleImage" for="module-option-1" data-description="360° Gun Turret" oncontextmenu="return false;" 
+                                    style="background: url('./images/ship-modules/ship-module-1.png'); background-position: center; background-size: cover;">
+                                </label>
+                                
+                                <input type="checkbox" id="module-option-2" name="Brig" value="2">
+                                <label class="randomShipModuleImage" for="module-option-2" data-description="Brig" oncontextmenu="return false;"
+                                    style="background: url('./images/ship-modules/ship-module-2.png'); background-position: center; background-size: cover;">
+                                </label>
 
+                                <input type="checkbox" id="module-option-3" name="Extra Cargo Hold" value="3">
+                                <label class="randomShipModuleImage" for="module-option-3" data-description="Extra Cargo Hold" oncontextmenu="return false;"
+                                    style="background: url('./images/ship-modules/ship-module-3.png'); background-position: center; background-size: cover;">
+                                </label>
+                                
+                                <input type="checkbox" id="module-option-4" name="Hidden Compartments" value="4">
+                                <label class="randomShipModuleImage" for="module-option-4" data-description="Hidden Compartments" oncontextmenu="return false;"
+                                    style="background: url('./images/ship-modules/ship-module-4.png'); background-position: center; background-size: cover;">
+                                </label>
+                                
+                                <input type="checkbox" id="module-option-5" name="Science Lab" value="5">
+                                <label class="randomShipModuleImage" for="module-option-5" data-description="Science Lab" oncontextmenu="return false;"
+                                    style="background: url('./images/ship-modules/ship-module-5.png'); background-position: center; background-size: cover;">    
+                                </label>
+                                
+                                <input type="checkbox" id="module-option-6" name="Network Link" value="6"> 
+                                <label class="randomShipModuleImage" for="module-option-6" data-description="Network Link" oncontextmenu="return false;"
+                                    style="background: url('./images/ship-modules/ship-module-6.png'); background-position: center; background-size: cover;">  
+                                </label>
+                                
+                                <input type="checkbox" id="module-option-7" name="Afterburners" value="7">
+                                <label class="randomShipModuleImage" for="module-option-7" data-description="Afterburners" oncontextmenu="return false;"
+                                    style="background: url('./images/ship-modules/ship-module-7.png'); background-position: center; background-size: cover;">
+                                </label>
+                                
+                                <input type="checkbox" id="module-option-8" name="Medbay" value="8">
+                                <label class="randomShipModuleImage" for="module-option-8" data-description="Medbay" oncontextmenu="return false;"
+                                    style="background: url('./images/ship-modules/ship-module-8.png'); background-position: center; background-size: cover;">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="randomCharacterButtonHolder">
+                            <button class="transmission-button" id="randomBackMainMenuButton" oncontextmenu="return false;">
+                                Main Menu
+                            </button>
+                            <button type="submit" class="transmission-button" id="createRandomCharacterButton" oncontextmenu="return false;">
+                                Play!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </section>
+    <p id="infoMessage" class="infoMessage"></p>
     <script src="/js/main.js" type="module"></script>
 </body>
 </html>

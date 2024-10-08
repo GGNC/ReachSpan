@@ -439,6 +439,7 @@ async function loadData() {
     alert("Create a character first");
   }
 }
+const character = await loadData();
 
 //#region handleEvents
 //#region Inventory
@@ -484,20 +485,61 @@ addItemButton.addEventListener("click", (event) => {
 });
 
 const reloadInventoryButton = document.querySelector("#inventoryReloadItemButton");
-reloadInventoryButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  if(character.items[0]){
-    console.log("hello")
+if(character.items[0]){
+  reloadInventoryButton.style.display = "block";
+  reloadInventoryButton.addEventListener("click", (event) => {
+      event.preventDefault();
       character.items.forEach((item) => {
         item.clockStage = 0;
       });
       localStorage.setItem("character", JSON.stringify(character));
       location.reload();
-  }else{
-    alert("There is no item to reload!");
-  }
-});
+  });
+}
 //#endregion
+//#endregion
+//#region stats
+  const statNames = document.querySelectorAll("#statName");
+  statNames.forEach((statName) => {
+    statName.addEventListener("mousemove", (event) => {
+      infoMessage.style.display = "block";
+      infoMessage.style.left = event.pageX + "px";
+      infoMessage.style.top = event.pageY + "px";
+      infoMessage.textContent = statName.getAttribute("data-description");
+    });
+    statName.addEventListener("mouseout", (event) => {
+      infoMessage.style.display = "none";
+    });
+  });
+
+  const directAttributes = document.querySelectorAll(".directAttribute > p");
+  directAttributes.forEach((directAttribute)=>{
+    directAttribute.addEventListener("mousemove", (event) => {
+      infoMessage.style.display = "block";
+      infoMessage.style.width = "4.5vw";
+      infoMessage.style.left = event.pageX + "px";
+      infoMessage.style.top = event.pageY + "px";
+      infoMessage.textContent = directAttribute.getAttribute("data-description");
+    });
+    directAttribute.addEventListener("mouseout", (event) => {
+      infoMessage.style.display = "none";
+      infoMessage.style.width = "20vw";
+    });
+  });
+  const adaptiveAttributes = document.querySelectorAll(".adaptiveAttribute > p");
+  adaptiveAttributes.forEach((adaptiveAttribute)=>{
+    adaptiveAttribute.addEventListener("mousemove", (event) => {
+      infoMessage.style.display = "block";
+      infoMessage.style.width = "4.75vw";
+      infoMessage.style.left = event.pageX + "px";
+      infoMessage.style.top = event.pageY + "px";
+      infoMessage.textContent = adaptiveAttribute.getAttribute("data-description");
+    });
+    adaptiveAttribute.addEventListener("mouseout", (event) => {
+      infoMessage.style.display = "none";
+      infoMessage.style.width = "20vw";
+    });
+  });
 //#endregion
 //#region Moxie
 const decrMoxieButtons = document.querySelectorAll("#moxeiDecreseButton");
@@ -511,11 +553,29 @@ for (const button of decrMoxieButtons) {
     moxie.textContent = value;
     character.setMoxie(value);
   });
+  button.addEventListener('mousemove',(event)=>{
+    infoMessage.style.display = 'block';
+    infoMessage.style.left = event.pageX + 'px';
+    infoMessage.style.top = event.pageY + 'px';
+    infoMessage.textContent = button.getAttribute("data-description");
+  });
+  button.addEventListener('mouseout',(event)=>{
+      infoMessage.style.display = 'none';
+  });
 }
 refreshMoxie.addEventListener("mousedown", (event) => {
   event.preventDefault();
   moxie.textContent = 3;
   character.setMoxie(3);
+});
+refreshMoxie.addEventListener('mousemove',(event)=>{
+  infoMessage.style.display = 'block';
+  infoMessage.style.left = event.pageX + 'px';
+  infoMessage.style.top = event.pageY + 'px';
+  infoMessage.textContent = refreshMoxie.getAttribute("data-description");
+});
+refreshMoxie.addEventListener('mouseout',(event)=>{
+    infoMessage.style.display = 'none';
 });
 //#endregion
 //#region Heat
@@ -691,13 +751,21 @@ function createModalContent(title, callback) {
   };
   addButton.textContent = `Add ${title}`;
   addButton.addEventListener("click", (event) => {
-    callback(
-      nameInput.value,
-      tagInput.value,
+    if (
+      nameInput.value &&
+      tagInput.value &&
       Number(
         document.querySelector('input[name="itemClockType"]:checked').value
       )
-    );
+    ) {
+      callback(
+        nameInput.value,
+        tagInput.value,
+        Number(
+          document.querySelector('input[name="itemClockType"]:checked').value
+        )
+      );
+    }
   });
 
   buttonsHolder.appendChild(addButton);
@@ -715,18 +783,17 @@ function createModalContent(title, callback) {
 //#region ship
     //#region modules
     const reloadModuleButton = document.querySelector("#reloadModuleButton");
-    reloadModuleButton.addEventListener("click", (event) => {
-        if(character.shipModules[0]){
-            event.preventDefault();
-            character.shipModules.forEach((shipModule) => {
-                shipModule.clockStage = 0;
-            });
-            localStorage.setItem("character", JSON.stringify(character));
-            location.reload();
-        }else{
-            alert("There is no module to reload!");
-        }
-    });
+    if (character.shipModules[0]) {
+      reloadModuleButton.style.display = "block";
+      reloadModuleButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        character.shipModules.forEach((shipModule) => {
+          shipModule.clockStage = 0;
+        });
+        localStorage.setItem("character", JSON.stringify(character));
+        location.reload();
+      });
+    }
     //#endregion
     //#region cargo
     const addCargoButton = document.querySelector("#addCargoButton");
@@ -754,5 +821,3 @@ function createModalContent(title, callback) {
     //#endregion
 //#endregion
 //#endregion
-
-const character = await loadData();

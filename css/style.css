@@ -71,6 +71,13 @@
         border: 0.25rem double var(--icewhite);
         border-radius: 1rem;
     }
+    .randomPanel {
+        width: 60vw;
+        margin: 2rem auto;
+        background-color: var(--darkgrey);
+        border: 0.25rem double var(--icewhite);
+        border-radius: 1rem;
+    }
     .sheetPanel {
         display: flex;
         justify-content: space-evenly;
@@ -132,10 +139,21 @@
         color: var(--icewhite);
         border: 0.25rem double var(--icewhite);
         border-radius: 0.5rem;
-        padding: 1rem 2rem;
-        font-size: var(--h4);
+        padding: 0.75rem 1.5rem;
+        font-size: 1.25rem;
         font-family: var(--main);
         cursor: pointer;
+    }
+    .infoMessage{
+        width: 20vw;
+        display: none;
+        position: absolute;
+        background-color: var(--darkgrey);
+        color: var(--icewhite);
+        border: 2px solid var(--icewhite);
+        padding: 5px;
+        border-radius: 5px;
+        z-index: 1000;
     }
 }
 @layer Landing-Page {
@@ -177,6 +195,162 @@
         margin: 2rem auto;
         display: flex;
         justify-content: space-around;
+    }
+    @layer randomCharacter {
+        #randomCharacterForm{
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .randomCharacterLabel{
+            position: static;
+            width: 20vw;
+            border: 0.25rem double var(--icewhite);
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            margin: auto auto;
+            padding: 1rem;
+            margin-top: -0.25rem;
+        }
+        #randomCharacterLabel{
+            text-align: center;
+            font-size: 2rem;
+        }
+        .randomFormHolder{
+            width: 97.5%;
+            margin: 2rem auto 1rem auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .randomModuleNameHolder{
+            cursor: default;
+        }
+        .randomFormShipImageHolder{
+            width: 32.5%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .randomShipImageHolder{
+            width: 80%;
+            margin-bottom: 0.75rem;
+        }
+        #data-randomShipImage{
+            width: 100%;
+            padding: 0.2rem;
+            margin: 0;
+            border: 2px solid white;
+        }
+        .randomShipImageButtonHolder{
+            display: flex;    
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between  ;
+            align-items: center;
+        }
+        #randomShipButtonLeft{
+            width: 40%;
+            margin: 0;
+            cursor: pointer;
+        }
+        #randomShipButtonRight{
+            width: 40%;
+            margin: 0;
+            cursor: pointer;
+        }
+        .randomFormShipAspectHolder{
+            width: 67.5%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .randomShipAspectHolder{
+            width: 95%;
+            margin: 0.3rem auto;
+            border: 2px solid var(--icewhite);
+            border-right: none;
+            border-left: none;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .randomShipAspectHolder > h2{
+            margin-bottom: 0.25rem;
+        }
+        .randomShipInputHolder{
+            width: 100%;
+            margin: 0.5rem auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .randomShipSelectInput{
+            border: none;
+            width: 40%;
+            background-color: var(--icewhite);
+            border-radius: 1rem;
+            padding: 0.35rem 1rem;
+        }
+        .randomShipTextInput{
+            border: none;
+            width: 40%;
+            background-color: var(--icewhite);
+            border-radius: 1rem;
+            padding: 0.35rem 1rem;
+        }
+        .randomShipModuleHolder{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .randomShipModuleHolder > input{
+            display: none;
+        }
+        .randomShipModuleImage{
+            margin: 1rem;
+            background-position: center;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border: 2px solid var(--icewhite);
+        }
+        input[type="checkbox"]:checked + .randomShipModuleImage {
+            background-color: var(--teal);
+            box-shadow: 0 0 15px 5px var(--lightpurple);
+        }
+        .randomCharacterButtonHolder{
+            width: 100%;
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        #randomBackMainMenuButton{
+            margin: 0.75rem 1rem;
+            border: 2px solid var(--icewhite);
+        }
+        #createRandomCharacterButton{
+            margin: 0.75rem 1rem;
+            border: 2px solid var(--icewhite);
+        }
     }
 }
 @layer Character-Sheet{
@@ -455,6 +629,7 @@
         }
         .directAttribute > p{
             color: var(--electricblue);
+            cursor: default;
         }
         .statContainer{
             width: 30%;
@@ -465,6 +640,7 @@
         }
         .statContainer > #statName{
             color: var(--icewhite);
+            cursor: default;
         }
         .adaptiveAttribute{
             width: 30%;
@@ -475,6 +651,7 @@
         }
         .adaptiveAttribute > p{
             color: var(--lightpurple);
+            cursor: default;
         }
         .arrowUp , .arrowDown {
             width: 5%;
@@ -511,14 +688,22 @@
             flex-wrap: nowrap;
             justify-content: center;
             gap: 1rem;
+            align-items: center;
         }
         #moxeiDecreseButton{
             cursor: pointer;
         }
         #data-characterMoxie{
-
+            margin: 0rem 0rem 0.5rem 0rem;
         }
         #moxeiRefreshButton{
+            font-weight: bold;
+            padding: 0.25rem 1rem;
+            border: 2px solid var(--icewhite);
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            margin: 0rem 0rem 0.5rem 0rem;
         }
         #moxieKeyWords{
             margin: 0.25rem 0;

@@ -3,12 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
         <title>Character Sheet</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,900;1,900&family=Roboto+Condensed:ital@0;1&display=swap"
-            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,900;1,900&family=Roboto+Condensed:ital@0;1&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/style.css">
     </head>
 <body>
@@ -47,7 +46,7 @@
                             Inventory
                         </legend>
                         <div id="inventoryButtonHolder">
-                            <button id="inventoryReloadItemButton" class="transmission-button" oncontextmenu="return false;">
+                            <button id="inventoryReloadItemButton" class="transmission-button" oncontextmenu="return false;" style="display: none;">
                                 Reload
                             </button>
                             <button id="inventoryAddItemButton" class="transmission-button" oncontextmenu="return false;">
@@ -78,56 +77,56 @@
                         <div id="statHolder">
                             <div class="statElement">
                                 <div class="directAttribute">
-                                    <p>INTUITIVE</p>
+                                    <p data-description="wise , emotional , creative">INTUITIVE</p>
                                 </div>
                                 <div class="arrowUp">
                                     <p>⇑</p>
                                 </div>
                                 <div class="statContainer">
-                                    <h5 id="statName">INTELLECT</h5>
+                                    <h5 id="statName" data-description="Gauges perception and used for information gathering and putting in practice the things you know">INTELLECT</h5>
                                     <h3 id="data-characterIntellect">6</h3>
                                 </div>
                                 <div class="arrowDown">
                                     <p>⇓</p>
                                 </div>
                                 <div class="adaptiveAttribute">
-                                    <p>LOGICAL</p>
+                                    <p data-description="sharp , practical , analytical">LOGICAL</p>
                                 </div>
                             </div>
                             <div class="statElement">
                                 <div class="directAttribute">
-                                    <p>SUBTLE</p>
+                                    <p data-description="tricky , smart , elegant">SUBTLE</p>
                                 </div>
                                 <div class="arrowUp">
                                     <p>⇑</p>
                                 </div>
                                 <div class="statContainer">
-                                    <h5 id="statName">CHARISMA</h5>
+                                    <h5 id="statName"  data-description="Reflects your influence, expressions and how you interact with others">CHARISMA</h5>
                                     <h3 id="data-characterCharisma">4</h3>
                                 </div>
                                 <div class="arrowDown">
                                     <p>⇓</p>
                                 </div>
                                 <div class="adaptiveAttribute">
-                                    <p>DARING</p>
+                                    <p data-description="passionate , assertive , bold">DARING</p>
                                 </div>
                             </div>
                             <div class="statElement">
                                 <div class="directAttribute">
-                                    <p>CUNNING</p>
+                                    <p data-description="agile , covert , cautious">CUNNING</p>
                                 </div>
                                 <div class="arrowUp">
                                     <p>⇑</p>
                                 </div>
                                 <div class="statContainer">
-                                    <h5 id="statName">NERVES</h5>
+                                    <h5 id="statName" data-description="Encompasses actions under tense situations, physicality, finesse and relying on instincts.">NERVES</h5>
                                     <h3 id="data-characterNerves">2</h3>
                                 </div>
                                 <div class="arrowDown">
                                     <p>⇓</p>
                                 </div>
                                 <div class="adaptiveAttribute">
-                                    <p>FORCEFUL</p>
+                                    <p data-description="burst , flashy , aggressive">FORCEFUL</p>
                                 </div>
                             </div>
                         </div>
@@ -138,14 +137,14 @@
                         <div id="moxieHolder">
                             <div id="moxieButtons">
                                 <h1 id="data-characterMoxie">3</h1>
-                                <button id="moxeiRefreshButton" oncontextmenu="return false;" >Refresh</button>
+                                <button class="transmission-button" id="moxeiRefreshButton" data-description='To refresh MOXIE, invoke one of your ASPECTs and: compel yourself into trouble/danger in an interesting way or hinder yourself in a situation/action significantly.' oncontextmenu="return false;" >Refresh</button>
                             </div>
                             <div id="moxieKeyWords">
-                                <p id="moxeiDecreseButton" class="purple" oncontextmenu="return false;">ASSIST</p>
-                                <p id="moxeiDecreseButton" class="orange" oncontextmenu="return false;">FLASHBACK</p>
-                                <p id="moxeiDecreseButton" oncontextmenu="return false;">RESIST</p>
-                                <p id="moxeiDecreseButton" class="blue" oncontextmenu="return false;">PRESS ON</p>
-                                <p id="moxeiDecreseButton" class="teal" oncontextmenu="return false;">STUNT</p>
+                                <p id="moxeiDecreseButton" class="purple" data-description="Grant BOOST /narrative requisite to someone instantly." oncontextmenu="return false;">ASSIST</p>
+                                <p id="moxeiDecreseButton" class="orange" data-description="Change the present by playing a scene in the past, you might need to roll for action still, to see if you succeed." oncontextmenu="return false;">FLASHBACK</p>
+                                <p id="moxeiDecreseButton" data-description="Prevent receiving a condition or protect someone from it; if you are able and circumstances allow, once a situation/action." oncontextmenu="return false;">RESIST</p>
+                                <p id="moxeiDecreseButton" class="blue" data-description="Reroll the action once but comply with the new result." oncontextmenu="return false;">PRESS ON</p>
+                                <p id="moxeiDecreseButton" class="teal" data-description="Perform a great feat/move using ASPECTS, with certain success. The GM may disallow/restrict if it's not appropriate." oncontextmenu="return false;">STUNT</p>
                             </div>
                         </div>
                 </div>
@@ -190,7 +189,7 @@
                                 </div>
                             </div>
                             <div class="shipButtonHolder">
-                                <button class="transmission-button" id="reloadModuleButton" oncontextmenu="return false;">
+                                <button class="transmission-button" id="reloadModuleButton" oncontextmenu="return false;" style="display: none;">
                                     Reload
                                 </button>
                                 <button class="transmission-button" id="addCargoButton" oncontextmenu="return false;">
@@ -226,6 +225,7 @@
 
         </div>
     </section>
+    <p id="infoMessage" class="infoMessage"></p>
     <script src="./js/sheet.js" type="module"></script>
 </body>
 </html>

@@ -36,7 +36,7 @@ export class Character {
 
     ];
     this.shipCargos = [
-        
+      
     ]
     this.logs = "";
   }
@@ -153,7 +153,7 @@ export class Character {
 }
 
 //#region helper functions
-async function getGameData() {
+export async function getGameData() {
   const response = await fetch("../data/data.json");
   const data = await response.json();
 
@@ -163,13 +163,13 @@ async function getGameData() {
   }
   return newData;
 }
-function getRandomNumber(min, max) {
+export function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-function getRandomData(dataArray) {
+export function getRandomData(dataArray) {
   return dataArray[getRandomNumber(0, dataArray.length)];
 }
-function getDifferentElements(dataArray, quantity) {
+export function getDifferentElements(dataArray, quantity) {
   const result = [];
   const usedIndices = new Set();
   while (result.length < quantity) {
@@ -181,7 +181,7 @@ function getDifferentElements(dataArray, quantity) {
   }
   return result;
 }
-function getRandomName(quantity) {
+export function getRandomName(quantity) {
   const namePool = [];
   const tempNames = getDifferentElements(gameData.characterName, quantity);
   const tempAlias = getDifferentElements(gameData.characterAlias, quantity);
