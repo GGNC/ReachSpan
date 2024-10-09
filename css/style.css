@@ -78,11 +78,18 @@
         border: 0.25rem double var(--icewhite);
         border-radius: 1rem;
     }
+    .createPanel{
+        width: 85vw;
+        margin: 2rem auto;
+        background-color: var(--darkgrey);
+        border: 0.25rem double var(--icewhite);
+        border-radius: 1rem;
+    }
     .sheetPanel {
         display: flex;
         justify-content: space-evenly;
         flex-wrap: nowrap;
-        width: 85vw;
+        width: 90vw;
         margin: 2rem auto;
         background-color: var(--darkgrey);
         border: 0.25rem double var(--icewhite);
@@ -252,7 +259,7 @@
             display: flex;    
             flex-direction: row;
             flex-wrap: nowrap;
-            justify-content: space-between  ;
+            justify-content: space-around;
             align-items: center;
         }
         #randomShipButtonLeft{
@@ -275,10 +282,7 @@
         }
         .randomShipAspectHolder{
             width: 95%;
-            margin: 0.3rem auto;
-            border: 2px solid var(--icewhite);
-            border-right: none;
-            border-left: none;
+            margin: 0.5rem auto;
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
@@ -343,11 +347,234 @@
             justify-content: flex-end;
             align-items: center;
         }
-        #randomBackMainMenuButton{
+        #backMainMenuButton{
             margin: 0.75rem 1rem;
             border: 2px solid var(--icewhite);
         }
         #createRandomCharacterButton{
+            margin: 0.75rem 1rem;
+            border: 2px solid var(--icewhite);
+        }
+    }
+    @layer createCharacter {
+        .createCharacterLabel{
+            position: static;
+            width: 25vw;
+            border: 0.25rem double var(--icewhite);
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            margin: auto auto;
+            padding: 1rem;
+            margin-top: -0.25rem;
+        }
+        #createCharacterLabel{
+            text-align: center;
+            font-size: 2rem;
+        }
+        #createCharacterForm{
+            margin: 1rem auto;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+        .createNameHolder{
+            cursor: default;
+            font-size: 1.75rem;
+            margin-top: 0.25rem;
+        }
+        .createCharacterAspectContainer{
+            width: 62.5%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .createCharacterAspects{
+            width: 95%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .createCharacterFormImageHolder{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .createCharacterImageHolder{
+            width: 90%;
+            margin-bottom: 0.5rem;
+        }
+        #data-createCharacterImage{
+            width: 100%;
+            padding: 0.2rem;
+            margin: 0;
+            border: 2px solid white;
+        }
+        .createCharacterImageButtonHolder{
+            display: flex;    
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content:  space-around;
+            align-items: center;
+        }
+        #createCharacterButtonLeft{
+            width: 40%;
+            margin: 0;
+            cursor: pointer;
+        }
+        #createCharacterButtonRight{
+            width: 40%;
+            margin: 0;
+            cursor: pointer;
+        }
+        .createCharacterFormAspectHolder{
+            width: 67.5%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .createCharacterAspectHolder{
+            width: 100%;
+            margin: 0.3rem auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .createCharacterInputHolder{
+            width: 100%;
+            margin: 0.5rem auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .createCharacterSelectInput{
+            border: none;
+            width: 40%;
+            background-color: var(--icewhite);
+            border-radius: 1rem;
+            padding: 0.35rem 1rem;
+        }
+        .createCharacterTextInput{
+            border: none;
+            width: 40%;
+            background-color: var(--icewhite);
+            font-family: var(--main);
+            font-weight: bold;
+            border-radius: 1rem;
+            padding: 0.35rem 1rem;
+        }
+        .createCharacterDescription{
+            width: 95%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .createCharacterTextareaInput{
+            width: 97.5%;
+            height: 95px;
+            margin: 0.5rem 1rem;
+            padding: 1rem 1.5rem;
+            background-color: var(--icewhite);
+            border: 2px solid #ccc;
+            border-radius: 1rem;
+            color: var(--darkgrey);
+            font-family: var(--main);
+            font-weight: 600;
+            font-size: var(--h6);
+            resize: none;
+        }
+        .createCharacterStatContainer{
+            width: 37.5%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .createCharacterStats{
+            width: 95%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .createCharacterStatHolder{
+            width: 85%;
+            padding: 0.5rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--icewhite);
+            border-left: none;
+            border-right: none;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .createCharacterStatHolder > h2{
+            font-size: 2rem;
+        }
+        .createCharacterStatValueHolder{
+            width: 85%;
+            margin: 1rem auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .createCharacterStatValueHolder > input{
+            display: none;
+        }
+        .createCharacterStatValue{
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--icewhite);
+            background: var(--darkgrey);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        input[type="radio"]:checked + .createCharacterStatValue {
+            box-shadow: 0 0 20px 7.5px var(--lightpurple);
+            border-color: #8d75d3;
+        }
+        .createCharacterStatValue > p {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            font-size: 1.75rem;
+        }
+        .createCharacterButtonHolder{
+            width: 95%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        #goToShipCreateButton{
             margin: 0.75rem 1rem;
             border: 2px solid var(--icewhite);
         }
@@ -536,7 +763,7 @@
         }
         .itemDataHolder > p{
             margin: 0;
-            width: 11.75vw;
+            width: 12.25vw;
             color: var(--icewhite);
             font-weight: bold;
             font-size: 0.7rem;
@@ -650,7 +877,7 @@
             align-items: center;
         }
         .adaptiveAttribute > p{
-            color: var(--lightpurple);
+            color: var(--teal);
             cursor: default;
         }
         .arrowUp , .arrowDown {
@@ -714,7 +941,7 @@
             gap: 0.25rem;
         }
         #moxieKeyWords > p{
-            margin: 0;
+            margin: 0 0.5rem;
             font-weight: bold;
             font-size: var(--h3);
         }

@@ -1,7 +1,7 @@
 export class Character {
   constructor() {
-    this.name = getRandomName(5);
-    this.image = getRandomNumber(1, 52);
+    this.name = getRandomName(5).singleName;
+    this.image = getRandomNumber(1, 109);
     this.role = getRandomData(gameData.characterRole);
     this.expertise = getRandomData(gameData.characterExpertise);
     this.power = getRandomData(gameData.characterPower);
@@ -31,7 +31,7 @@ export class Character {
     this.shipName = getRandomData(gameData.shipName);
     this.shipFeature = getRandomData(gameData.shipFeature);
     this.shipProblem = getRandomData(gameData.shipProblem);
-    this.shipImage = getRandomNumber(1, 19);
+    this.shipImage = getRandomNumber(1, 101);
     this.shipModules = [
 
     ];
@@ -190,9 +190,12 @@ export function getRandomName(quantity) {
     namePool.push(`${tempNames[i]} ${tempAlias[i]}`);
     namePool.push(tempUniqueNames[i]);
   }
-  return namePool[getRandomNumber(0, namePool.length)];
+  return {
+    namePool : namePool,
+    singleName : namePool[getRandomNumber(0, namePool.length)]
+  }
 }
-function getRandomDescription(behavior, role, looks, background, backstory) {
+export function getRandomDescription(behavior, role, looks, background, backstory) {
   const descriptionPool = [
     `A ${behavior} ${role}, who appears ${looks}. Once a ${background}, ${backstory}. Now, venturing to settle a spacemonger identity.`,
     `A ${looks} ${role}, with ${behavior} vibes. Back then a ${background}, ${backstory}. After deciding the path to move on, now ready for any voyage.`,
@@ -203,7 +206,7 @@ function getRandomDescription(behavior, role, looks, background, backstory) {
 function getStats() {
   const numbers = [];
   while (numbers.length < 3) {
-    const randomNumber = Math.floor(Math.random() * 5) + 2; // Random number between 2 and 6
+    const randomNumber = Math.floor(Math.random() * 5) + 2;
     if (!numbers.includes(randomNumber)) {
       numbers.push(randomNumber);
     }

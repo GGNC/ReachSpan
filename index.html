@@ -19,10 +19,10 @@
                 <img src="/images/reachspan-logo.png" alt="reachSpanlogo">
             </div>
             <fieldset id="landing-Description">
-                <legend>
+                <legend class="createNameHolder">
                     About the Game
                 </legend>
-                <p>
+                <p class="createNameHolder">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     The Calamity scarred reality, leaving behind a fractured galaxy with many lost and forgotten. Far sectors shattered and anomalies appeared. The Great Confederation a conservative monolithic dominion with long traditions and the chaotic Free Union an unbridled coalition pursuing terrifying tech- now wage a relentless war across the stars. Beyond the core systems and regulated routes lies the Reach, a lawless expanse teeming with untold horrors and secrets. You are Spacemongers, a motley crew of foolhardy merchants and fighters who venture around, undertaking jobs, claiming bounties and seeking profits. But remember, morality is a luxury in this erratic cluster of misery!
                 </p>
@@ -31,7 +31,7 @@
         <div id="landing-Buttons">
             <button class="transmission-button" id="loadCharacterButton" oncontextmenu="return false;" style="display: none;">Load Character</button>
             <button class="transmission-button" id="randomCharacterButton" oncontextmenu="return false;">Random Character</button>
-            <button class="transmission-button" oncontextmenu="return false;">Create Character</button>
+            <button class="transmission-button" id="createCharacterButton" oncontextmenu="return false;">Create Character</button>
         </div>
     </section>
     <section id="randomCharacterPage" style="display: none;">
@@ -46,35 +46,39 @@
                             <img id="data-randomShipImage" src="./images/ship-images/ship-image-1.png">
                         </div>
                         <div class="randomShipImageButtonHolder">
-                            <img id="randomShipButtonLeft" src="./images/arrow-images/left-arrow.png" oncontextmenu="return false;"></img>
-                            <img id="randomShipButtonRight" src="./images/arrow-images/right-arrow.png" oncontextmenu="return false;"></img>
+                            <img id="randomShipButtonLeft" src="./images/arrow-images/left-arrow-1.png" oncontextmenu="return false;"></img>
+                            <img id="randomShipButtonRight" src="./images/arrow-images/right-arrow-1.png" oncontextmenu="return false;"></img>
                         </div>
                     </div>
                     <div class="randomFormShipAspectHolder">
+                        <hr style="width: 95%;margin: 0;">
                         <div class="randomShipAspectHolder">
                             <h2 class="randomModuleNameHolder" id="data-randomShipName">Name of the ship</h2>
                             <div class="randomShipInputHolder">
                                 <select class="randomShipSelectInput" id="randomShipNameSelection" oncontextmenu="return false;">
                                 </select>
-                                <input type="text" class="randomShipTextInput" id="randomShipNameInput">
+                                <input maxlength="25" type="text" class="randomShipTextInput" id="randomShipNameInput">
                             </div>
                         </div>
+                        <hr style="width: 95%;margin: 0;">
                         <div class="randomShipAspectHolder">
                             <h2 class="randomModuleNameHolder" id="data-randomShipName">Special Feature Implemented</h2>
                             <div class="randomShipInputHolder">
                                 <select class="randomShipSelectInput" id="randomShipSpecialFeatureSelection" oncontextmenu="return false;">
                                 </select>
-                                <input type="text" class="randomShipTextInput" id="randomShipSpecialFeatureInput">
+                                <input maxlength="25" type="text" class="randomShipTextInput" id="randomShipSpecialFeatureInput">
                             </div>
                         </div>
+                        <hr style="width: 95%;margin: 0;">
                         <div class="randomShipAspectHolder">
                             <h2 class="randomModuleNameHolder" id="data-randomShipName">A Frequent Problem</h2>
                             <div class="randomShipInputHolder">
                                 <select class="randomShipSelectInput" id="randomShipProblemSelection" oncontextmenu="return false;">
                                 </select>
-                                <input type="text" class="randomShipTextInput" id="randomShipProblemInput">
+                                <input maxlength="25" type="text" class="randomShipTextInput" id="randomShipProblemInput">
                             </div>
                         </div>
+                        <hr style="width: 95%;margin: 0;">
                         <div class="randomShipAspectHolder">
                             <h2 class="randomModuleNameHolder" id="randomModuleNameHolder">Module Loadout</h2>
                             <div class="randomShipModuleHolder">
@@ -119,8 +123,9 @@
                                 </label>
                             </div>
                         </div>
+                        <hr style="width: 95%;margin: 0;">
                         <div class="randomCharacterButtonHolder">
-                            <button class="transmission-button" id="randomBackMainMenuButton" oncontextmenu="return false;">
+                            <button class="transmission-button" id="backMainMenuButton" oncontextmenu="return false;">
                                 Main Menu
                             </button>
                             <button type="submit" class="transmission-button" id="createRandomCharacterButton" oncontextmenu="return false;">
@@ -128,8 +133,186 @@
                             </button>
                         </div>
                     </div>
+                </div> 
+            </form>
+        </div>
+    </section>
+    <section id="createCharacterPage" style="display: none;">
+        <div class="createPanel">
+            <div class="createCharacterLabel">
+                <h2 class="createNameHolder" id="createCharacterLabel">CHARACTER CREATION</h2>
+            </div>
+            <form id="createCharacterForm">
+                <div class="createCharacterAspectContainer">
+                    <div class="createCharacterAspects">
+                        <div class="createCharacterFormImageHolder">
+                            <div class="createCharacterImageHolder">
+                                <img id="data-createCharacterImage" src="./images/character-portraits/character-image-86.png">
+                            </div>
+                            <div class="createCharacterImageButtonHolder">
+                                <img id="createCharacterButtonLeft" src="./images/arrow-images/left-arrow-1.png" oncontextmenu="return false;"></img>
+                                <img id="createCharacterButtonRight" src="./images/arrow-images/right-arrow-1.png" oncontextmenu="return false;"></img>
+                            </div>
+                        </div>
+                        <div class="createCharacterFormAspectHolder">
+                            <hr style="width: 100%;margin: 0;">
+                            <div class="createCharacterAspectHolder">
+                                <h2 class="createNameHolder">Name of your Character</h2>
+                                <div class="createCharacterInputHolder">
+                                    <select class="createCharacterSelectInput" id="createCharacterNameSelection" oncontextmenu="return false;">
+                                    </select>
+                                    <input maxlength="25" type="text" class="createCharacterTextInput" id="createCharacterNameInput">
+                                </div>
+                            </div>
+                            <hr style="width: 100%;margin: 0;">
+                            <div class="createCharacterAspectHolder">
+                                <h2 class="createNameHolder">ROLE</h2>
+                                <div class="createCharacterInputHolder">
+                                    <select class="createCharacterSelectInput" id="createCharacterRoleSelection" oncontextmenu="return false;">
+                                    </select>
+                                    <input maxlength="25" type="text" class="createCharacterTextInput" id="createCharacterRoleInput">
+                                </div>
+                            </div>
+                            <hr style="width: 100%;margin: 0;">
+                            <div class="createCharacterAspectHolder">
+                                <h2 class="createNameHolder">EXPERTISE</h2>
+                                <div class="createCharacterInputHolder">
+                                    <select class="createCharacterSelectInput" id="createCharacterExpertiseSelection" oncontextmenu="return false;">
+                                    </select>
+                                    <input maxlength="25" type="text" class="createCharacterTextInput" id="createCharacterExpertiseInput">
+                                </div>
+                            </div>
+                            <hr style="width: 100%;margin: 0;">
+                            <div class="createCharacterAspectHolder">
+                                <h2 class="createNameHolder">POWER</h2>
+                                <div class="createCharacterInputHolder">
+                                    <select class="createCharacterSelectInput" id="createCharacterPowerSelection" oncontextmenu="return false;">
+                                    </select>
+                                    <input maxlength="25" type="text" class="createCharacterTextInput" id="createCharacterPowerInput">
+                                </div>
+                            </div>
+                            <hr style="width: 100%;margin: 0;">
+                            <div class="createCharacterAspectHolder">
+                                <h2 class="createNameHolder">FLAW</h2>
+                                <div class="createCharacterInputHolder">
+                                    <select class="createCharacterSelectInput" id="createCharacterFlawSelection" oncontextmenu="return false;">
+                                    </select>
+                                    <input maxlength="25" type="text" class="createCharacterTextInput" id="createCharacterFlawInput">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="createCharacterDescription">
+                        <hr style="width: 100%;margin: 0;">
+                        <div class="createCharacterAspectHolder">
+                            <h2 class="createNameHolder">Backstory of your Character</h2>
+                            <div class="createCharacterInputHolder">
+                                <textarea maxlength="180" class="createCharacterTextareaInput" id="createCharacterDescriptionInput"></textarea>
+                            </div>
+                        </div>
+                        <hr style="width: 100%;margin: 0;">
+                    </div>
                 </div>
-                
+                <div class="createCharacterStatContainer">
+                    <div class="createCharacterStats">
+                        <div class="createCharacterStatHolder">
+                            <h2 class="createNameHolder">INTELLECT</h2>
+                            <div class="createCharacterStatValueHolder">
+                                <input type="radio" id="data-intellectOption-2" name="data-createCharacterIntellect" value="2">
+                                <label class="createCharacterStatValue" for="data-intellectOption-2" name="data-createCharacterIntellect" value="2" oncontextmenu="return false;" >
+                                    <p class="blue">2</p>
+                                </label>
+                                
+                                <input type="radio" id="data-intellectOption-3" name="data-createCharacterIntellect"  value="3">
+                                <label class="createCharacterStatValue" for="data-intellectOption-3" name="data-createCharacterIntellect" value="3" oncontextmenu="return false;" >
+                                    <p class="blue">3</p>
+                                </label>
+
+                                <input type="radio" id="data-intellectOption-4" name="data-createCharacterIntellect"  value="4">
+                                <label class="createCharacterStatValue" for="data-intellectOption-4" name="data-createCharacterIntellect" value="4" oncontextmenu="return false;" >
+                                    <p class="orange">4</p>
+                                </label>
+
+                                <input type="radio" id="data-intellectOption-5" name="data-createCharacterIntellect"  value="5">
+                                <label class="createCharacterStatValue" for="data-intellectOption-5" name="data-createCharacterIntellect" value="5" oncontextmenu="return false;" >
+                                    <p class="teal">5</p>
+                                </label>
+
+                                <input type="radio" id="data-intellectOption-6" name="data-createCharacterIntellect"  value="6">
+                                <label class="createCharacterStatValue" for="data-intellectOption-6" name="data-createCharacterIntellect" value="6" oncontextmenu="return false;" >
+                                    <p class="teal">6</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="createCharacterStatHolder">
+                            <h2 class="createNameHolder">CHARISMA</h2>
+                            <div class="createCharacterStatValueHolder">
+                                <input type="radio" id="data-charismaOption-2" name="data-createCharacterCharisma" value="2">
+                                <label class="createCharacterStatValue" for="data-charismaOption-2" name="data-createCharacterCharisma" value="2" oncontextmenu="return false;" >
+                                    <p class="blue">2</p>
+                                </label>
+                                
+                                <input type="radio" id="data-charismaOption-3" name="data-createCharacterCharisma" value="3">
+                                <label class="createCharacterStatValue" for="data-charismaOption-3" name="data-createCharacterCharisma" value="3" oncontextmenu="return false;" >
+                                    <p class="blue">3</p>
+                                </label>
+
+                                <input type="radio" id="data-charismaOption-4" name="data-createCharacterCharisma" value="4">
+                                <label class="createCharacterStatValue" for="data-charismaOption-4" name="data-createCharacterCharisma" value="4" oncontextmenu="return false;" >
+                                    <p class="orange">4</p>
+                                </label>
+
+                                <input type="radio" id="data-charismaOption-5" name="data-createCharacterCharisma" value="5">
+                                <label class="createCharacterStatValue" for="data-charismaOption-5" name="data-createCharacterCharisma" value="5" oncontextmenu="return false;" >
+                                    <p class="teal">5</p>
+                                </label>
+
+                                <input type="radio" id="data-charismaOption-6" name="data-createCharacterCharisma" value="6">
+                                <label class="createCharacterStatValue" for="data-charismaOption-6" name="data-createCharacterCharisma" value="6" oncontextmenu="return false;" >
+                                    <p class="teal">6</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="createCharacterStatHolder">
+                            <h2 class="createNameHolder">NERVES</h2>
+                            <div class="createCharacterStatValueHolder">
+                                <input type="radio" id="data-nervesOption-2" name="data-createCharacterNerves" value="2">
+                                <label class="createCharacterStatValue" for="data-nervesOption-2" name="data-createCharacterNerves" value="2" oncontextmenu="return false;" >
+                                    <p class="blue">2</p>
+                                </label>
+                                
+                                <input type="radio" id="data-nervesOption-3" name="data-createCharacterNerves" value="3">
+                                <label class="createCharacterStatValue" for="data-nervesOption-3" name="data-createCharacterNerves" value="3" oncontextmenu="return false;" >
+                                    <p class="blue">3</p>
+                                </label>
+
+                                <input type="radio" id="data-nervesOption-4" name="data-createCharacterNerves" value="4">
+                                <label class="createCharacterStatValue" for="data-nervesOption-4" name="data-createCharacterNerves" value="4" oncontextmenu="return false;" >
+                                    <p class="orange">4</p>
+                                </label>
+
+                                <input type="radio" id="data-nervesOption-5" name="data-createCharacterNerves" value="5">
+                                <label class="createCharacterStatValue" for="data-nervesOption-5" name="data-createCharacterNerves" value="5" oncontextmenu="return false;" >
+                                    <p class="teal">5</p>
+                                </label>
+
+                                <input type="radio" id="data-nervesOption-6" name="data-createCharacterNerves" value="6">
+                                <label class="createCharacterStatValue" for="data-nervesOption-6" name="data-createCharacterNerves" value="6" oncontextmenu="return false;" >
+                                    <p class="teal">6</p>
+                                </label>
+                            </div>
+                        </div>
+        
+                    </div>
+                    <div class="createCharacterButtonHolder">
+                        <button class="transmission-button" id="backMainMenuButton" oncontextmenu="return false;">
+                            Main Menu
+                        </button>
+                        <button type="submit" class="transmission-button" id="goToShipCreateButton" oncontextmenu="return false;">
+                            Create Ship
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </section>

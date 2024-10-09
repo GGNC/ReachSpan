@@ -516,7 +516,7 @@ if(character.items[0]){
   directAttributes.forEach((directAttribute)=>{
     directAttribute.addEventListener("mousemove", (event) => {
       infoMessage.style.display = "block";
-      infoMessage.style.width = "4.5vw";
+      infoMessage.style.width = "4.25vw";
       infoMessage.style.left = event.pageX + "px";
       infoMessage.style.top = event.pageY + "px";
       infoMessage.textContent = directAttribute.getAttribute("data-description");
@@ -530,7 +530,7 @@ if(character.items[0]){
   adaptiveAttributes.forEach((adaptiveAttribute)=>{
     adaptiveAttribute.addEventListener("mousemove", (event) => {
       infoMessage.style.display = "block";
-      infoMessage.style.width = "4.75vw";
+      infoMessage.style.width = "4.5vw";
       infoMessage.style.left = event.pageX + "px";
       infoMessage.style.top = event.pageY + "px";
       infoMessage.textContent = adaptiveAttribute.getAttribute("data-description");
