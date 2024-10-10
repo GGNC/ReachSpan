@@ -11,11 +11,14 @@ export class Character {
     this.looks = getRandomData(gameData.characterLooks);
     this.backstory = getRandomData(gameData.characterBackstory);
     this.description = getRandomDescription(
-      this.behavior,
       this.role,
-      this.looks,
+      this.expertise,
+      this.power,
+      this.flaw,
+      this.behavior,
       this.background,
-      this.backstory
+      this.looks,
+      this.backstory,
     );
     this.credit = 3;
     this.items = [
@@ -195,13 +198,29 @@ export function getRandomName(quantity) {
     singleName : namePool[getRandomNumber(0, namePool.length)]
   }
 }
-export function getRandomDescription(behavior, role, looks, background, backstory) {
+export function getRandomDescription(role,expertise,power,flaw,behavior,background,looks,backstory) {
+  role = role.toLowerCase();
+  expertise = expertise.toLowerCase();
+  power = power.toLowerCase();
+  flaw = flaw.toLowerCase();
+  behavior = behavior.toLowerCase();
+  background = background.toLowerCase();
+  looks = looks.toLowerCase();
+  backstory = backstory.toLowerCase();
   const descriptionPool = [
     `A ${behavior} ${role}, who appears ${looks}. Once a ${background}, ${backstory}. Now, venturing to settle a spacemonger identity.`,
     `A ${looks} ${role}, with ${behavior} vibes. Back then a ${background}, ${backstory}. After deciding the path to move on, now ready for any voyage.`,
-    `A ${role}, looking ${looks} yet ${behavior}. Formerly a ${background}, ${backstory}. Following the events, with determined goals the route is clear.`,
+    `A ${role}, looking ${looks} yet ${behavior}. Formerly a ${background}, ${backstory}. Following the events, with determined plans the route is clear.`,
+    `A ${role}, with a ${looks} appearance and a ${behavior} personality. Formerly a ${background}. Being ${flaw} has shaped the knowledge ${expertise}, and ready to face the unknown.`,
+    `A ${role}, seemingly ${looks} and ${behavior}. But beneath the surface lies a ${background} past. Now wandering with a resolute mind to follow.`,
+    `A ${looks} ${role}, driven by ${power}. Being a ${background} forced a ${behavior} nature inside. Now on the path of seeking answers and new adventures.`,
+    `A ${behavior} ${role}, known for being ${behavior}. Torn between a ${background} background and a new goal, now struggle with being ${flaw} yet still eager to exploit opportunities.`,
+    `A ${looks} ${role}, with ${behavior} personality. Already forgotten about the ${background} past and succumbed to dreams, now willing to fulfill an aspiration with clear intent.`,
+    `A ${behavior} ${role}, seeming lost. Experience in ${expertise} uncovered a potency of ${power} powers. Taking the ${background} past for granted, aiming to put the skills on test as striving for growth.`,
+    `A ${role} at one point serving as a ${background}, ${backstory}. Scarred by the events, the ${looks} impression and ${behavior} habit reflects the foregone. Fueled by the ${power} talents, decided to head on a journey for a new beginning.`
   ];
-  return descriptionPool[getRandomNumber(0, descriptionPool.length)];
+  const characterDescription = descriptionPool[getRandomNumber(0, descriptionPool.length)];
+  return characterDescription;
 }
 function getStats() {
   const numbers = [];

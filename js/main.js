@@ -336,9 +336,9 @@ createCharacterButton.addEventListener(`click`,()=>{
                     let characterFlaw = createCharacterFlawInput.value.trim() || createCharacterFlawSelection.value;
                     character.setFlaw(characterFlaw);
 
-                    let characterDescription = createCharacterDescriptionInput.value.trim() || getRandomDescription(character.behavior,character.role,character.looks,character.background,character.backstory);
+                    let characterDescription = createCharacterDescriptionInput.value.trim() || getRandomDescription(character.role,character.expertise,character.power,character.flaw,character.behavior,character.background,character.looks,character.backstory);
                     character.setDescription(characterDescription);
-
+                    
                     let allNumbers = [2,3,4,5,6];
                     let characterIntellect = 0;
                     if(document.querySelector('input[name="data-createCharacterIntellect"]:checked')){

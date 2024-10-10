@@ -172,266 +172,273 @@ async function loadData() {
 
     //#endregion
     //#region load modules
-        for (let index = 0; index < 6; index++) {
-            let moduleContainer = (index%2) === 0 ? document.querySelector(".leftModuleSection") : document.querySelector(".rightModuleSection");
-            let moduleSide = (index%2) === 0 ? "leftBasedItem" : "rightBasedItem" ;
-            if(character.shipModules[index]){
-                //#region create HTML
-                    const shipModule = character.shipModules[index];
-                    // Create a div with class 'shipModule' and id 'rightBasedItem'
-                    const shipModuleContainer = document.createElement('div');
-                    shipModuleContainer.classList.add('shipModule');
-                    shipModuleContainer.id = moduleSide;
+    for (let index = 0; index < 6; index++) {
+      let moduleContainer =
+        index % 2 === 0
+          ? document.querySelector(".leftModuleSection")
+          : document.querySelector(".rightModuleSection");
+      let moduleSide = index % 2 === 0 ? "leftBasedItem" : "rightBasedItem";
+      if (character.shipModules[index]) {
+        //#region create HTML
+        const shipModule = character.shipModules[index];
+        // Create a div with class 'shipModule' and id 'rightBasedItem'
+        const shipModuleContainer = document.createElement("div");
+        shipModuleContainer.classList.add("shipModule");
+        shipModuleContainer.id = moduleSide;
 
-                    // Create the deleteButtonHolder div
-                    const divModuleDeleteHolder = document.createElement("div");
-                    divModuleDeleteHolder.className = "moduleDeleteHolder";
-                    divModuleDeleteHolder.oncontextmenu = () => {
-                        return false;
-                    };
+        // Create the deleteButtonHolder div
+        const divModuleDeleteHolder = document.createElement("div");
+        divModuleDeleteHolder.className = "moduleDeleteHolder";
+        divModuleDeleteHolder.oncontextmenu = () => {
+          return false;
+        };
 
-                    // Create the container div for clock
-                    const moduleClockContainer = document.createElement('div');
-                    moduleClockContainer.classList.add('moduleClockContainer');
+        // Create the container div for clock
+        const moduleClockContainer = document.createElement("div");
+        moduleClockContainer.classList.add("moduleClockContainer");
 
-                    // Create the div for clock border
-                    const moduleClockBorder = document.createElement('div');
-                    moduleClockBorder.classList.add('moduleClockBorder');
+        // Create the div for clock border
+        const moduleClockBorder = document.createElement("div");
+        moduleClockBorder.classList.add("moduleClockBorder");
 
-                    // Create the button with id 'data-moduleClock'
-                    const moduleClockButton = document.createElement('button');
-                    moduleClockButton.id = 'data-moduleClock';
-                    moduleClockButton.oncontextmenu = () => {
-                        return false;
-                    };
-                    moduleClockButton.style.backgroundImage = `url('/images/clock-images/${shipModule.clockType}x-clock/clock-stage-${shipModule.clockStage}.png')`;
+        // Create the button with id 'data-moduleClock'
+        const moduleClockButton = document.createElement("button");
+        moduleClockButton.id = "data-moduleClock";
+        moduleClockButton.oncontextmenu = () => {
+          return false;
+        };
+        moduleClockButton.style.backgroundImage = `url('/images/clock-images/${shipModule.clockType}x-clock/clock-stage-${shipModule.clockStage}.png')`;
 
+        // Append the clock border and button to the clock container
+        moduleClockContainer.appendChild(moduleClockBorder);
+        moduleClockContainer.appendChild(moduleClockButton);
 
-                    // Append the clock border and button to the clock container
-                    moduleClockContainer.appendChild(moduleClockBorder);
-                    moduleClockContainer.appendChild(moduleClockButton);
+        // Create the div for data holder
+        const moduleDataHolder = document.createElement("div");
+        moduleDataHolder.classList.add("moduleDataHolder");
 
-                    // Create the div for data holder
-                    const moduleDataHolder = document.createElement('div');
-                    moduleDataHolder.classList.add('moduleDataHolder');
+        // Create the paragraph for module name with id 'data-moduleName'
+        const moduleName = document.createElement("p");
+        moduleName.id = "data-moduleName";
+        moduleName.textContent = shipModule.name; // Set dynamically if needed
 
-                    // Create the paragraph for module name with id 'data-moduleName'
-                    const moduleName = document.createElement('p');
-                    moduleName.id = 'data-moduleName';
-                    moduleName.textContent = shipModule.name;  // Set dynamically if needed
+        // Create the paragraph for module tags with id 'data-moduleTags'
+        const moduleTags = document.createElement("p");
+        moduleTags.id = "data-moduleTags";
+        moduleTags.textContent = shipModule.tag; // Set dynamically if needed
 
-                    // Create the paragraph for module tags with id 'data-moduleTags'
-                    const moduleTags = document.createElement('p');
-                    moduleTags.id = 'data-moduleTags';
-                    moduleTags.textContent = shipModule.tag;  // Set dynamically if needed
+        // Append the module name and tags to the data holder
+        moduleDataHolder.appendChild(moduleName);
+        moduleDataHolder.appendChild(moduleTags);
 
-                    // Append the module name and tags to the data holder
-                    moduleDataHolder.appendChild(moduleName);
-                    moduleDataHolder.appendChild(moduleTags);
+        // Append all the elements to the shipModule
+        shipModuleContainer.appendChild(divModuleDeleteHolder);
+        shipModuleContainer.appendChild(moduleClockContainer);
+        shipModuleContainer.appendChild(moduleDataHolder);
 
-                    // Append all the elements to the shipModule
-                    shipModuleContainer.appendChild(divModuleDeleteHolder);
-                    shipModuleContainer.appendChild(moduleClockContainer);
-                    shipModuleContainer.appendChild(moduleDataHolder);
-
-                    // Finally, append the shipModule to the body or another container element in your HTML
-                    moduleContainer.appendChild(shipModuleContainer);  // Or use any specific container
-                //#endregion
-                //#region add Event Listeners 
-                    moduleClockButton.addEventListener("mousedown", (event) => {
-                        event.preventDefault();
-                        let value;
-                        if (event.button === 0) {
-                          value = 1;
-                        } else if (event.button === 1) {
-                          value = 0;
-                          shipModule.clockStage = 0;
-                        } else if (event.button === 2) {
-                          value = -1;
-                        }
-                        shipModule.clockStage += value;
-                        if (shipModule.clockStage <= 0) shipModule.clockStage = 0;
-                        if (shipModule.clockStage >= shipModule.clockType + 1)
-                            shipModule.clockStage = shipModule.clockType;
-                        moduleClockButton.style.backgroundImage = `url('/images/clock-images/${shipModule.clockType}x-clock/clock-stage-${shipModule.clockStage}.png')`;
-                    });
-                    divModuleDeleteHolder.addEventListener("click",(event)=>{
-                        event.preventDefault();
-                        let updatedModules = character.shipModules.filter((originalModule) => {
-                            if (originalModule.id !== shipModule.id) {
-                                return originalModule;
-                            }
-                        });
-                        character.setModules(updatedModules);
-                        localStorage.setItem("character", JSON.stringify(character));
-                        location.reload();
-                    });
-
-                //#endregion
-            }else{
-                // Create a div with class 'shipModule' and id 'leftBasedItem'
-                const shipModule = document.createElement('div');
-                shipModule.classList.add('shipModule');
-                shipModule.id = moduleSide;
-
-                 // Create the deleteButtonHolder div
-                 const divModuleDeleteHolder = document.createElement("div");
-                 divModuleDeleteHolder.style.width = "60px";
-                 divModuleDeleteHolder.style.height = "25px";
-                 divModuleDeleteHolder.style.margin = "auto -1.275rem"
-                 divModuleDeleteHolder.oncontextmenu = () => {
-                     return false;
-                 };
-                // Create the container div for clock
-                const moduleClockContainer = document.createElement('div');
-                moduleClockContainer.classList.add('moduleClockContainer');
-
-                // Create the div for clock border
-                const moduleClockBorder = document.createElement('div');
-                moduleClockBorder.classList.add('moduleClockBorder');
-
-                // Create the button with id 'data-moduleClock'
-                const moduleClockButton = document.createElement('button');
-                moduleClockButton.id = 'data-moduleClock';
-                moduleClockButton.oncontextmenu = () => {
-                    return false;
-                };
-                moduleClockButton.addEventListener("click",(event)=>{
-                    event.preventDefault();
-                    document.querySelector(".modalArea").style.display = "unset";
-                    let newModuleID = 1;
-                    if(character.shipModules[character.shipModules.length -1 ]){
-                        newModuleID = character.shipModules[character.shipModules.length -1 ].id +1;
-                    }
-                    createModalContent("module",(name, tag, clockType)=>{
-                        character.setModules([
-                            ...character.shipModules,
-                            {
-                                id : newModuleID,
-                                name,
-                                tag,
-                                clockType,
-                                clockStage : 0
-                            }
-                        ]);
-                        localStorage.setItem("character", JSON.stringify(character));
-                    });
-                });
-
-                // Append the clock border and button to the clock container
-                moduleClockContainer.appendChild(moduleClockBorder);
-                moduleClockContainer.appendChild(moduleClockButton);
-
-                // Create the div for data holder
-                const moduleDataHolder = document.createElement('div');
-                moduleDataHolder.classList.add('moduleDataHolder');
-
-                // Create the paragraph for empty module with id 'emptyModule'
-                const emptyModule = document.createElement('p');
-                emptyModule.id = 'emptyModule';
-                emptyModule.textContent = 'Empty Module';  // You can set the module text dynamically
-
-                // Append the empty module to the data holder
-                moduleDataHolder.appendChild(emptyModule);
-
-                // Append all the elements to the shipModule
-                shipModule.appendChild(divModuleDeleteHolder);
-                shipModule.appendChild(moduleClockContainer);
-                shipModule.appendChild(moduleDataHolder);
-
-                // Finally, append the shipModule to the body or another container element in your HTML
-                moduleContainer.appendChild(shipModule);  // Or use any specific container
-
+        // Finally, append the shipModule to the body or another container element in your HTML
+        moduleContainer.appendChild(shipModuleContainer); // Or use any specific container
+        //#endregion
+        //#region add Event Listeners
+        moduleClockButton.addEventListener("mousedown", (event) => {
+          event.preventDefault();
+          let value;
+          if (event.button === 0) {
+            value = 1;
+          } else if (event.button === 1) {
+            value = 0;
+            shipModule.clockStage = 0;
+          } else if (event.button === 2) {
+            value = -1;
+          }
+          shipModule.clockStage += value;
+          if (shipModule.clockStage <= 0) shipModule.clockStage = 0;
+          if (shipModule.clockStage >= shipModule.clockType + 1)
+            shipModule.clockStage = shipModule.clockType;
+          moduleClockButton.style.backgroundImage = `url('/images/clock-images/${shipModule.clockType}x-clock/clock-stage-${shipModule.clockStage}.png')`;
+        });
+        divModuleDeleteHolder.addEventListener("click", (event) => {
+          event.preventDefault();
+          let updatedModules = character.shipModules.filter(
+            (originalModule) => {
+              if (originalModule.id !== shipModule.id) {
+                return originalModule;
+              }
             }
-        }
+          );
+          character.setModules(updatedModules);
+          localStorage.setItem("character", JSON.stringify(character));
+          location.reload();
+        });
+
+        //#endregion
+      } else {
+        // Create a div with class 'shipModule' and id 'leftBasedItem'
+        const shipModule = document.createElement("div");
+        shipModule.classList.add("shipModule");
+        shipModule.id = moduleSide;
+
+        // Create the deleteButtonHolder div
+        const divModuleDeleteHolder = document.createElement("div");
+        divModuleDeleteHolder.style.width = "60px";
+        divModuleDeleteHolder.style.height = "25px";
+        divModuleDeleteHolder.style.margin = "auto -1.275rem";
+        divModuleDeleteHolder.oncontextmenu = () => {
+          return false;
+        };
+        // Create the container div for clock
+        const moduleClockContainer = document.createElement("div");
+        moduleClockContainer.classList.add("moduleClockContainer");
+
+        // Create the div for clock border
+        const moduleClockBorder = document.createElement("div");
+        moduleClockBorder.classList.add("moduleClockBorder");
+
+        // Create the button with id 'data-moduleClock'
+        const moduleClockButton = document.createElement("button");
+        moduleClockButton.id = "data-moduleClock";
+        moduleClockButton.oncontextmenu = () => {
+          return false;
+        };
+        moduleClockButton.addEventListener("click", (event) => {
+          event.preventDefault();
+          document.querySelector(".modalArea").style.display = "unset";
+          let newModuleID = 1;
+          if (character.shipModules[character.shipModules.length - 1]) {
+            newModuleID =
+              character.shipModules[character.shipModules.length - 1].id + 1;
+          }
+          createModalContent("module", (name, tag, clockType) => {
+            character.setModules([
+              ...character.shipModules,
+              {
+                id: newModuleID,
+                name,
+                tag,
+                clockType,
+                clockStage: 0,
+              },
+            ]);
+            localStorage.setItem("character", JSON.stringify(character));
+          });
+        });
+
+        // Append the clock border and button to the clock container
+        moduleClockContainer.appendChild(moduleClockBorder);
+        moduleClockContainer.appendChild(moduleClockButton);
+
+        // Create the div for data holder
+        const moduleDataHolder = document.createElement("div");
+        moduleDataHolder.classList.add("moduleDataHolder");
+
+        // Create the paragraph for empty module with id 'emptyModule'
+        const emptyModule = document.createElement("p");
+        emptyModule.id = "emptyModule";
+        emptyModule.textContent = "Empty Module"; // You can set the module text dynamically
+
+        // Append the empty module to the data holder
+        moduleDataHolder.appendChild(emptyModule);
+
+        // Append all the elements to the shipModule
+        shipModule.appendChild(divModuleDeleteHolder);
+        shipModule.appendChild(moduleClockContainer);
+        shipModule.appendChild(moduleDataHolder);
+
+        // Finally, append the shipModule to the body or another container element in your HTML
+        moduleContainer.appendChild(shipModule); // Or use any specific container
+      }
+    }
     //#endregion
     //#region load cargo
-        for (let index = 0; index < character.shipCargos.length; index++) {
-            let shipCargo = character.shipCargos[index];
-            let cargoContainer = (index%2) === 0 ? document.querySelector("#leftCargoContainer") : document.querySelector("#rightCargoContainer");
-            let cargoSide = (index%2) === 0 ? "leftBasedItem" : "rightBasedItem";
-            //#region create HTML
-                const divCargoModule = document.createElement("div");
-                divCargoModule.className = "cargoModule";
-                divCargoModule.id = cargoSide;
+    for (let index = 0; index < character.shipCargos.length; index++) {
+      let shipCargo = character.shipCargos[index];
+      let cargoContainer =
+        index % 2 === 0
+          ? document.querySelector("#leftCargoContainer")
+          : document.querySelector("#rightCargoContainer");
+      let cargoSide = index % 2 === 0 ? "leftBasedItem" : "rightBasedItem";
+      //#region create HTML
+      const divCargoModule = document.createElement("div");
+      divCargoModule.className = "cargoModule";
+      divCargoModule.id = cargoSide;
 
-                // Create the deleteButtonHolder div
-                const divCargoDeleteHolder = document.createElement("div");
-                divCargoDeleteHolder.className = "cargoDeleteHolder";
-                divCargoDeleteHolder.oncontextmenu = () => {
-                    return false;
-                };
-                // Create the itemClockContainer div
-                const divCargoClockContainer = document.createElement("div");
-                divCargoClockContainer.className = "cargoClockContainer";
+      // Create the deleteButtonHolder div
+      const divCargoDeleteHolder = document.createElement("div");
+      divCargoDeleteHolder.className = "cargoDeleteHolder";
+      divCargoDeleteHolder.oncontextmenu = () => {
+        return false;
+      };
+      // Create the itemClockContainer div
+      const divCargoClockContainer = document.createElement("div");
+      divCargoClockContainer.className = "cargoClockContainer";
 
-                // Create the button
-                const buttonCargoClock = document.createElement("button");
-                buttonCargoClock.id = "data-cargoClock";
-                buttonCargoClock.oncontextmenu = () => {
-                    return false;
-                };
-                buttonCargoClock.style.backgroundImage = `url('/images/clock-images/${shipCargo.clockType}x-clock/clock-stage-${shipCargo.clockStage}.png')`;
+      // Create the button
+      const buttonCargoClock = document.createElement("button");
+      buttonCargoClock.id = "data-cargoClock";
+      buttonCargoClock.oncontextmenu = () => {
+        return false;
+      };
+      buttonCargoClock.style.backgroundImage = `url('/images/clock-images/${shipCargo.clockType}x-clock/clock-stage-${shipCargo.clockStage}.png')`;
 
-                // Append the clockBorder and button to itemClockContainer
-                divCargoClockContainer.appendChild(buttonCargoClock);
+      // Append the clockBorder and button to itemClockContainer
+      divCargoClockContainer.appendChild(buttonCargoClock);
 
-                // Create the itemDataHolder div
-                const divCargoDataHolder = document.createElement("div");
-                divCargoDataHolder.className = "cargoDataHolder";
+      // Create the itemDataHolder div
+      const divCargoDataHolder = document.createElement("div");
+      divCargoDataHolder.className = "cargoDataHolder";
 
-                // Create the itemName p element
-                const pCargoName = document.createElement("p");
-                pCargoName.id = "data-cargoName";
-                pCargoName.textContent = shipCargo.name;
+      // Create the itemName p element
+      const pCargoName = document.createElement("p");
+      pCargoName.id = "data-cargoName";
+      pCargoName.textContent = shipCargo.name;
 
-                // Create the itemTags p element
-                const pCargoTags = document.createElement("p");
-                pCargoTags.id = "data-cargoTags";
-                pCargoTags.textContent = shipCargo.tag;
+      // Create the itemTags p element
+      const pCargoTags = document.createElement("p");
+      pCargoTags.id = "data-cargoTags";
+      pCargoTags.textContent = shipCargo.tag;
 
-                // Append the p elements to itemDataHolder
-                divCargoDataHolder.appendChild(pCargoName);
-                divCargoDataHolder.appendChild(pCargoTags);
+      // Append the p elements to itemDataHolder
+      divCargoDataHolder.appendChild(pCargoName);
+      divCargoDataHolder.appendChild(pCargoTags);
 
-                // Append itemClockContainer and itemDataHolder to inventoryItem div
-                divCargoModule.appendChild(divCargoDeleteHolder);
-                divCargoModule.appendChild(divCargoClockContainer);
-                divCargoModule.appendChild(divCargoDataHolder);
+      // Append itemClockContainer and itemDataHolder to inventoryItem div
+      divCargoModule.appendChild(divCargoDeleteHolder);
+      divCargoModule.appendChild(divCargoClockContainer);
+      divCargoModule.appendChild(divCargoDataHolder);
 
-                cargoContainer.appendChild(divCargoModule);
-            //#endregion
-            //#region add Event Listeners
-                buttonCargoClock.addEventListener("mousedown",(event)=>{
-                    event.preventDefault();
-                        let value;
-                        if (event.button === 0) {
-                          value = 1;
-                        } else if (event.button === 1) {
-                          value = 0;
-                          shipCargo.clockStage = 0;
-                        } else if (event.button === 2) {
-                          value = -1;
-                        }
-                        shipCargo.clockStage += value;
-                        if (shipCargo.clockStage <= 0) shipCargo.clockStage = 0;
-                        if (shipCargo.clockStage >= shipCargo.clockType + 1)
-                            shipCargo.clockStage = shipCargo.clockType;
-                        buttonCargoClock.style.backgroundImage = `url('/images/clock-images/${shipCargo.clockType}x-clock/clock-stage-${shipCargo.clockStage}.png')`;
-                });
-                divCargoDeleteHolder.addEventListener("click",(event)=>{
-                    event.preventDefault();
-                    let updatedCargos = character.shipCargos.filter((originalCargo) => {
-                        if (originalCargo.id !== shipCargo.id) {
-                            return originalCargo;
-                        }
-                    });
-                    character.setCargos(updatedCargos);
-                    localStorage.setItem("character", JSON.stringify(character));
-                    location.reload();
-                });
-            //#endregion
+      cargoContainer.appendChild(divCargoModule);
+      //#endregion
+      //#region add Event Listeners
+      buttonCargoClock.addEventListener("mousedown", (event) => {
+        event.preventDefault();
+        let value;
+        if (event.button === 0) {
+          value = 1;
+        } else if (event.button === 1) {
+          value = 0;
+          shipCargo.clockStage = 0;
+        } else if (event.button === 2) {
+          value = -1;
         }
+        shipCargo.clockStage += value;
+        if (shipCargo.clockStage <= 0) shipCargo.clockStage = 0;
+        if (shipCargo.clockStage >= shipCargo.clockType + 1)
+          shipCargo.clockStage = shipCargo.clockType;
+        buttonCargoClock.style.backgroundImage = `url('/images/clock-images/${shipCargo.clockType}x-clock/clock-stage-${shipCargo.clockStage}.png')`;
+      });
+      divCargoDeleteHolder.addEventListener("click", (event) => {
+        event.preventDefault();
+        let updatedCargos = character.shipCargos.filter((originalCargo) => {
+          if (originalCargo.id !== shipCargo.id) {
+            return originalCargo;
+          }
+        });
+        character.setCargos(updatedCargos);
+        localStorage.setItem("character", JSON.stringify(character));
+        location.reload();
+      });
+      //#endregion
+    }
     //#endregion
     //#endregion
     return character;
@@ -484,64 +491,78 @@ addItemButton.addEventListener("click", (event) => {
   });
 });
 
-const reloadInventoryButton = document.querySelector("#inventoryReloadItemButton");
-if(character.items[0]){
+const reloadInventoryButton = document.querySelector(
+  "#inventoryReloadItemButton"
+);
+if (character.items[0]) {
   reloadInventoryButton.style.display = "block";
   reloadInventoryButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      character.items.forEach((item) => {
-        item.clockStage = 0;
-      });
-      localStorage.setItem("character", JSON.stringify(character));
-      location.reload();
+    event.preventDefault();
+    character.items.forEach((item) => {
+      item.clockStage = 0;
+    });
+    localStorage.setItem("character", JSON.stringify(character));
+    location.reload();
   });
 }
 //#endregion
 //#endregion
 //#region stats
-  const statNames = document.querySelectorAll("#statName");
-  statNames.forEach((statName) => {
-    statName.addEventListener("mousemove", (event) => {
-      infoMessage.style.display = "block";
-      infoMessage.style.left = event.pageX + "px";
-      infoMessage.style.top = event.pageY + "px";
-      infoMessage.textContent = statName.getAttribute("data-description");
-    });
-    statName.addEventListener("mouseout", (event) => {
-      infoMessage.style.display = "none";
-    });
+const statNames = document.querySelectorAll("#statName");
+statNames.forEach((statName) => {
+  statName.addEventListener("mousemove", (event) => {
+    infoMessage.style.display = "block";
+    infoMessage.style.left = event.pageX + "px";
+    infoMessage.style.top = event.pageY + "px";
+    infoMessage.textContent = statName.getAttribute("data-description");
   });
+  statName.addEventListener("mouseout", (event) => {
+    infoMessage.style.display = "none";
+  });
+});
 
-  const directAttributes = document.querySelectorAll(".directAttribute > p");
-  directAttributes.forEach((directAttribute)=>{
-    directAttribute.addEventListener("mousemove", (event) => {
-      infoMessage.style.display = "block";
-      infoMessage.style.width = "4.25vw";
-      infoMessage.style.left = event.pageX + "px";
-      infoMessage.style.top = event.pageY + "px";
-      infoMessage.textContent = directAttribute.getAttribute("data-description");
-    });
-    directAttribute.addEventListener("mouseout", (event) => {
-      infoMessage.style.display = "none";
-      infoMessage.style.width = "20vw";
-    });
+const directAttributes = document.querySelectorAll(".directAttribute > p");
+directAttributes.forEach((directAttribute) => {
+  directAttribute.addEventListener("mousemove", (event) => {
+    infoMessage.style.display = "block";
+    infoMessage.style.width = "5.5vw";
+    infoMessage.style.left = event.pageX + "px";
+    infoMessage.style.top = event.pageY + "px";
+    infoMessage.textContent = directAttribute.getAttribute("data-description");
   });
-  const adaptiveAttributes = document.querySelectorAll(".adaptiveAttribute > p");
-  adaptiveAttributes.forEach((adaptiveAttribute)=>{
-    adaptiveAttribute.addEventListener("mousemove", (event) => {
-      infoMessage.style.display = "block";
-      infoMessage.style.width = "4.5vw";
-      infoMessage.style.left = event.pageX + "px";
-      infoMessage.style.top = event.pageY + "px";
-      infoMessage.textContent = adaptiveAttribute.getAttribute("data-description");
-    });
-    adaptiveAttribute.addEventListener("mouseout", (event) => {
-      infoMessage.style.display = "none";
-      infoMessage.style.width = "20vw";
-    });
+  directAttribute.addEventListener("mouseout", (event) => {
+    infoMessage.style.display = "none";
+    infoMessage.style.width = "20vw";
   });
+});
+
+const adaptiveAttributes = document.querySelectorAll(".adaptiveAttribute > p");
+adaptiveAttributes.forEach((adaptiveAttribute) => {
+  adaptiveAttribute.addEventListener("mousemove", (event) => {
+    infoMessage.style.display = "block";
+    infoMessage.style.width = "6vw";
+    infoMessage.style.left = event.pageX + "px";
+    infoMessage.style.top = event.pageY + "px";
+    infoMessage.textContent =
+      adaptiveAttribute.getAttribute("data-description");
+  });
+  adaptiveAttribute.addEventListener("mouseout", (event) => {
+    infoMessage.style.display = "none";
+    infoMessage.style.width = "20vw";
+  });
+});
 //#endregion
 //#region Moxie
+const moxieTitle = document.querySelector(`#moxieTitle`);
+moxieTitle.addEventListener("mousemove", (event) => {
+  infoMessage.style.display = "block";
+  infoMessage.style.left = event.pageX + "px";
+  infoMessage.style.top = event.pageY + "px";
+  infoMessage.textContent = moxieTitle.getAttribute("data-description");
+});
+moxieTitle.addEventListener("mouseout", (event) => {
+  infoMessage.style.display = "none";
+});
 const decrMoxieButtons = document.querySelectorAll("#moxeiDecreseButton");
 const moxie = document.querySelector("#data-characterMoxie");
 const refreshMoxie = document.querySelector("#moxeiRefreshButton");
@@ -553,14 +574,14 @@ for (const button of decrMoxieButtons) {
     moxie.textContent = value;
     character.setMoxie(value);
   });
-  button.addEventListener('mousemove',(event)=>{
-    infoMessage.style.display = 'block';
-    infoMessage.style.left = event.pageX + 'px';
-    infoMessage.style.top = event.pageY + 'px';
+  button.addEventListener("mousemove", (event) => {
+    infoMessage.style.display = "block";
+    infoMessage.style.left = event.pageX + "px";
+    infoMessage.style.top = event.pageY + "px";
     infoMessage.textContent = button.getAttribute("data-description");
   });
-  button.addEventListener('mouseout',(event)=>{
-      infoMessage.style.display = 'none';
+  button.addEventListener("mouseout", (event) => {
+    infoMessage.style.display = "none";
   });
 }
 refreshMoxie.addEventListener("mousedown", (event) => {
@@ -568,17 +589,27 @@ refreshMoxie.addEventListener("mousedown", (event) => {
   moxie.textContent = 3;
   character.setMoxie(3);
 });
-refreshMoxie.addEventListener('mousemove',(event)=>{
-  infoMessage.style.display = 'block';
-  infoMessage.style.left = event.pageX + 'px';
-  infoMessage.style.top = event.pageY + 'px';
+refreshMoxie.addEventListener("mousemove", (event) => {
+  infoMessage.style.display = "block";
+  infoMessage.style.left = event.pageX + "px";
+  infoMessage.style.top = event.pageY + "px";
   infoMessage.textContent = refreshMoxie.getAttribute("data-description");
 });
-refreshMoxie.addEventListener('mouseout',(event)=>{
-    infoMessage.style.display = 'none';
+refreshMoxie.addEventListener("mouseout", (event) => {
+  infoMessage.style.display = "none";
 });
 //#endregion
 //#region Heat
+const heatText = document.querySelector(`#heatTitle`);
+heatText.addEventListener("mousemove", (event) => {
+  infoMessage.style.display = "block";
+  infoMessage.style.left = event.pageX + "px";
+  infoMessage.style.top = event.pageY + "px";
+  infoMessage.textContent = heatText.getAttribute("data-description");
+});
+heatText.addEventListener("mouseout", (event) => {
+  infoMessage.style.display = "none";
+});
 const heatImg = document.querySelector(`#data-heatImage`);
 heatImg.addEventListener(`mousedown`, (event) => {
   let value = 0;
@@ -781,43 +812,43 @@ function createModalContent(title, callback) {
 }
 //#endregion
 //#region ship
-    //#region modules
-    const reloadModuleButton = document.querySelector("#reloadModuleButton");
-    if (character.shipModules[0]) {
-      reloadModuleButton.style.display = "block";
-      reloadModuleButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        character.shipModules.forEach((shipModule) => {
-          shipModule.clockStage = 0;
-        });
-        localStorage.setItem("character", JSON.stringify(character));
-        location.reload();
-      });
-    }
-    //#endregion
-    //#region cargo
-    const addCargoButton = document.querySelector("#addCargoButton");
-    addCargoButton.addEventListener("click",(event)=>{
-        event.preventDefault();
-        document.querySelector(".modalArea").style.display = "unset";
-        let newCargoId = 1;
-        if(character.shipCargos[character.shipCargos.length -1 ]){
-            newCargoId = character.shipCargos[character.shipCargos.length -1 ].id +1;
-        };
-        createModalContent("cargo",(name,tag,clockType)=>{
-            character.setCargos([
-                ...character.shipCargos,
-                {
-                  id: newCargoId,
-                  name,
-                  tag,
-                  clockType,
-                  clockStage: 0,
-                },
-              ]);
-              localStorage.setItem("character", JSON.stringify(character));
-        });
-    })
-    //#endregion
+//#region modules
+const reloadModuleButton = document.querySelector("#reloadModuleButton");
+if (character.shipModules[0]) {
+  reloadModuleButton.style.display = "block";
+  reloadModuleButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    character.shipModules.forEach((shipModule) => {
+      shipModule.clockStage = 0;
+    });
+    localStorage.setItem("character", JSON.stringify(character));
+    location.reload();
+  });
+}
+//#endregion
+//#region cargo
+const addCargoButton = document.querySelector("#addCargoButton");
+addCargoButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  document.querySelector(".modalArea").style.display = "unset";
+  let newCargoId = 1;
+  if (character.shipCargos[character.shipCargos.length - 1]) {
+    newCargoId = character.shipCargos[character.shipCargos.length - 1].id + 1;
+  }
+  createModalContent("cargo", (name, tag, clockType) => {
+    character.setCargos([
+      ...character.shipCargos,
+      {
+        id: newCargoId,
+        name,
+        tag,
+        clockType,
+        clockStage: 0,
+      },
+    ]);
+    localStorage.setItem("character", JSON.stringify(character));
+  });
+});
+//#endregion
 //#endregion
 //#endregion

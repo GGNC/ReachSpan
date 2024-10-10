@@ -644,6 +644,7 @@
             border-radius: 1rem;
             font-weight: bold;
             font-size: var(--h6);
+            min-height: 15vh;
         }   
         .aspectValueHolder{
             color: var(--darkgrey);
@@ -892,6 +893,9 @@
         }
     }
     @layer CharacterMoxie{
+        #moxieTitle{
+            cursor: default;
+        }
         #characterMoxie{
             display: flex;
             flex-direction: column;
@@ -973,6 +977,7 @@
             margin: 0.5rem 2rem;
             color: var(--icewhite);
             font-size: 45px;
+            cursor: default;
         }
         #heatImageContainer{
             width: 50%;
